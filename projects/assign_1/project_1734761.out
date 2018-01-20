@@ -1,0 +1,294 @@
+Loaded dependency [gcc/6.3.0]: binutils
+Loaded module: gcc/6.3.0
+Loaded module: studio/12u5
+Loaded module: python3/3.6.0
+CPU information
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                24
+On-line CPU(s) list:   0-23
+Thread(s) per core:    1
+Core(s) per socket:    12
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
+Stepping:              1
+CPU MHz:               1199.945
+BogoMIPS:              4400.61
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              30720K
+NUMA node0 CPU(s):     0-11
+NUMA node1 CPU(s):     12-23
+\nnow ready for performance test\n
+matmult_c.gcc nat
+Creating experiment database ./analysis/test.nat.1.er (Process ID: 25804) ...
+    58.594   1395.089 0 # matmult_nat
+name test.nat.1.er is in use; changed to test.nat.2.er
+Creating experiment database ./analysis/test.nat.2.er (Process ID: 25834) ...
+ 16933.594   1156.680 0 # matmult_nat
+name test.nat.1.er is in use; changed to test.nat.3.er
+Creating experiment database ./analysis/test.nat.3.er (Process ID: 25864) ...
+ 60000.000    741.228 0 # matmult_nat
+./analysis/test.nat.1.er: Experiment has warnings, see header for details
+./analysis/test.nat.2.er: Experiment has warnings, see header for details
+./analysis/test.nat.3.er: Experiment has warnings, see header for details
+Now file: ./analysis_out/test.nat.1.734761.txt
+Now file: ./analysis_out/test.nat.2.734761.txt
+Now file: ./analysis_out/test.nat.3.734761.txt
+File created: ./analysis_out/test.nat.734761.txt
+matmult_c.gcc lib
+Creating experiment database ./analysis/test.lib.1.er (Process ID: 26068) ...
+    58.594   6887.052 0 # matmult_lib
+name test.lib.1.er is in use; changed to test.lib.2.er
+Creating experiment database ./analysis/test.lib.2.er (Process ID: 26074) ...
+ 16933.594   9497.104 0 # matmult_lib
+name test.lib.1.er is in use; changed to test.lib.3.er
+Creating experiment database ./analysis/test.lib.3.er (Process ID: 26080) ...
+ 60000.000   9540.503 0 # matmult_lib
+./analysis/test.lib.1.er: Experiment has warnings, see header for details
+./analysis/test.lib.2.er: Experiment has warnings, see header for details
+./analysis/test.lib.3.er: Experiment has warnings, see header for details
+Now file: ./analysis_out/test.lib.1.734761.txt
+Now file: ./analysis_out/test.lib.2.734761.txt
+Now file: ./analysis_out/test.lib.3.734761.txt
+File created: ./analysis_out/test.lib.734761.txt
+matmult_c.gcc blk36
+Creating experiment database ./analysis/test.blk36.1.er (Process ID: 26108) ...
+    58.594   1535.627 0 # matmult_blk 36
+name test.blk36.1.er is in use; changed to test.blk36.2.er
+Creating experiment database ./analysis/test.blk36.2.er (Process ID: 26114) ...
+ 16933.594   1578.097 0 # matmult_blk 36
+name test.blk36.1.er is in use; changed to test.blk36.3.er
+Creating experiment database ./analysis/test.blk36.3.er (Process ID: 26144) ...
+ 60000.000   1545.277 0 # matmult_blk 36
+./analysis/test.blk36.1.er: Experiment has warnings, see header for details
+./analysis/test.blk36.2.er: Experiment has warnings, see header for details
+./analysis/test.blk36.3.er: Experiment has warnings, see header for details
+Now file: ./analysis_out/test.blk36.1.734761.txt
+Now file: ./analysis_out/test.blk36.2.734761.txt
+Now file: ./analysis_out/test.blk36.3.734761.txt
+File created: ./analysis_out/test.blk36.734761.txt
+matmult_c.gcc blk103
+Creating experiment database ./analysis/test.blk103.1.er (Process ID: 26337) ...
+    58.594   1368.363 0 # matmult_blk 103
+name test.blk103.1.er is in use; changed to test.blk103.2.er
+Creating experiment database ./analysis/test.blk103.2.er (Process ID: 26343) ...
+ 16933.594   1469.020 0 # matmult_blk 103
+name test.blk103.1.er is in use; changed to test.blk103.3.er
+Creating experiment database ./analysis/test.blk103.3.er (Process ID: 26361) ...
+ 60000.000   1474.373 0 # matmult_blk 103
+./analysis/test.blk103.1.er: Experiment has warnings, see header for details
+./analysis/test.blk103.2.er: Experiment has warnings, see header for details
+./analysis/test.blk103.3.er: Experiment has warnings, see header for details
+Now file: ./analysis_out/test.blk103.1.734761.txt
+Now file: ./analysis_out/test.blk103.2.734761.txt
+Now file: ./analysis_out/test.blk103.3.734761.txt
+File created: ./analysis_out/test.blk103.734761.txt
+matmult_c.gcc blk1103
+Creating experiment database ./analysis/test.blk1103.1.er (Process ID: 26472) ...
+    58.594   1363.141 0 # matmult_blk 1103
+name test.blk1103.1.er is in use; changed to test.blk1103.2.er
+Creating experiment database ./analysis/test.blk1103.2.er (Process ID: 26478) ...
+ 16933.594   1616.696 0 # matmult_blk 1103
+name test.blk1103.1.er is in use; changed to test.blk1103.3.er
+Creating experiment database ./analysis/test.blk1103.3.er (Process ID: 26496) ...
+ 60000.000   1606.347 0 # matmult_blk 1103
+./analysis/test.blk1103.1.er: Experiment has warnings, see header for details
+./analysis/test.blk1103.2.er: Experiment has warnings, see header for details
+./analysis/test.blk1103.3.er: Experiment has warnings, see header for details
+Now file: ./analysis_out/test.blk1103.1.734761.txt
+Now file: ./analysis_out/test.blk1103.2.734761.txt
+Now file: ./analysis_out/test.blk1103.3.734761.txt
+File created: ./analysis_out/test.blk1103.734761.txt
+matmult_c.gcc mkn
+Creating experiment database ./analysis/test.mkn.1.er (Process ID: 26605) ...
+    58.594   3987.241 0 # matmult_mkn
+name test.mkn.1.er is in use; changed to test.mkn.2.er
+Creating experiment database ./analysis/test.mkn.2.er (Process ID: 26611) ...
+ 16933.594   4317.921 0 # matmult_mkn
+name test.mkn.1.er is in use; changed to test.mkn.3.er
+Creating experiment database ./analysis/test.mkn.3.er (Process ID: 26625) ...
+ 60000.000   4445.242 0 # matmult_mkn
+./analysis/test.mkn.1.er: Experiment has warnings, see header for details
+./analysis/test.mkn.2.er: Experiment has warnings, see header for details
+./analysis/test.mkn.3.er: Experiment has warnings, see header for details
+Now file: ./analysis_out/test.mkn.1.734761.txt
+Now file: ./analysis_out/test.mkn.2.734761.txt
+Now file: ./analysis_out/test.mkn.3.734761.txt
+File created: ./analysis_out/test.mkn.734761.txt
+matmult_c.gcc nmk
+Creating experiment database ./analysis/test.nmk.1.er (Process ID: 26679) ...
+    58.594   1599.488 0 # matmult_nmk
+name test.nmk.1.er is in use; changed to test.nmk.2.er
+Creating experiment database ./analysis/test.nmk.2.er (Process ID: 26685) ...
+ 16933.594   1362.378 0 # matmult_nmk
+name test.nmk.1.er is in use; changed to test.nmk.3.er
+Creating experiment database ./analysis/test.nmk.3.er (Process ID: 26703) ...
+ 60000.000    698.759 0 # matmult_nmk
+./analysis/test.nmk.1.er: Experiment has warnings, see header for details
+./analysis/test.nmk.2.er: Experiment has warnings, see header for details
+./analysis/test.nmk.3.er: Experiment has warnings, see header for details
+Now file: ./analysis_out/test.nmk.1.734761.txt
+Now file: ./analysis_out/test.nmk.2.734761.txt
+Now file: ./analysis_out/test.nmk.3.734761.txt
+File created: ./analysis_out/test.nmk.734761.txt
+matmult_c.gcc nkm
+Creating experiment database ./analysis/test.nkm.1.er (Process ID: 26905) ...
+    58.594   1418.037 0 # matmult_nkm
+name test.nkm.1.er is in use; changed to test.nkm.2.er
+Creating experiment database ./analysis/test.nkm.2.er (Process ID: 26911) ...
+ 16933.594    576.635 0 # matmult_nkm
+name test.nkm.1.er is in use; changed to test.nkm.3.er
+Creating experiment database ./analysis/test.nkm.3.er (Process ID: 26983) ...
+ 60000.000    353.289 0 # matmult_nkm
+./analysis/test.nkm.1.er: Experiment has warnings, see header for details
+./analysis/test.nkm.2.er: Experiment has warnings, see header for details
+./analysis/test.nkm.3.er: Experiment has warnings, see header for details
+Now file: ./analysis_out/test.nkm.1.734761.txt
+Now file: ./analysis_out/test.nkm.2.734761.txt
+Now file: ./analysis_out/test.nkm.3.734761.txt
+File created: ./analysis_out/test.nkm.734761.txt
+matmult_c.gcc mnk
+Creating experiment database ./analysis/test.mnk.1.er (Process ID: 27387) ...
+    58.594   1584.284 0 # matmult_mnk
+name test.mnk.1.er is in use; changed to test.mnk.2.er
+Creating experiment database ./analysis/test.mnk.2.er (Process ID: 27393) ...
+ 16933.594   1156.982 0 # matmult_mnk
+name test.mnk.1.er is in use; changed to test.mnk.3.er
+Creating experiment database ./analysis/test.mnk.3.er (Process ID: 27411) ...
+ 60000.000    747.500 0 # matmult_mnk
+./analysis/test.mnk.1.er: Experiment has warnings, see header for details
+./analysis/test.mnk.2.er: Experiment has warnings, see header for details
+./analysis/test.mnk.3.er: Experiment has warnings, see header for details
+Now file: ./analysis_out/test.mnk.1.734761.txt
+Now file: ./analysis_out/test.mnk.2.734761.txt
+Now file: ./analysis_out/test.mnk.3.734761.txt
+File created: ./analysis_out/test.mnk.734761.txt
+matmult_c.gcc knm
+Creating experiment database ./analysis/test.knm.1.er (Process ID: 27667) ...
+    58.594   1506.932 0 # matmult_knm
+name test.knm.1.er is in use; changed to test.knm.2.er
+Creating experiment database ./analysis/test.knm.2.er (Process ID: 27673) ...
+ 16933.594    573.255 0 # matmult_knm
+name test.knm.1.er is in use; changed to test.knm.3.er
+Creating experiment database ./analysis/test.knm.3.er (Process ID: 27708) ...
+ 60000.000    352.302 0 # matmult_knm
+./analysis/test.knm.1.er: Experiment has warnings, see header for details
+./analysis/test.knm.2.er: Experiment has warnings, see header for details
+./analysis/test.knm.3.er: Experiment has warnings, see header for details
+Now file: ./analysis_out/test.knm.1.734761.txt
+Now file: ./analysis_out/test.knm.2.734761.txt
+Now file: ./analysis_out/test.knm.3.734761.txt
+File created: ./analysis_out/test.knm.734761.txt
+matmult_c.gcc kmn
+Creating experiment database ./analysis/test.kmn.1.er (Process ID: 28153) ...
+    58.594   3765.060 0 # matmult_kmn
+name test.kmn.1.er is in use; changed to test.kmn.2.er
+Creating experiment database ./analysis/test.kmn.2.er (Process ID: 28159) ...
+ 16933.594   3898.054 0 # matmult_kmn
+name test.kmn.1.er is in use; changed to test.kmn.3.er
+Creating experiment database ./analysis/test.kmn.3.er (Process ID: 28177) ...
+ 60000.000   3991.784 0 # matmult_kmn
+./analysis/test.kmn.1.er: Experiment has warnings, see header for details
+./analysis/test.kmn.2.er: Experiment has warnings, see header for details
+./analysis/test.kmn.3.er: Experiment has warnings, see header for details
+Now file: ./analysis_out/test.kmn.1.734761.txt
+Now file: ./analysis_out/test.kmn.2.734761.txt
+Now file: ./analysis_out/test.kmn.3.734761.txt
+File created: ./analysis_out/test.kmn.734761.txt
+\n end of performance test\n
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-21-97>
+Subject: Job 734761: <project_1> in cluster <dcc> Done
+
+Job <project_1> was submitted from host <n-62-29-1> by user <s160159> in cluster <dcc> at Sat Jan  6 02:30:51 2018.
+Job was executed on host(s) <n-62-21-97>, in queue <hpcintro>, as user <s160159> in cluster <dcc> at Sat Jan  6 02:30:52 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/projects/assign_1> was used as the working directory.
+Started at Sat Jan  6 02:30:52 2018.
+Terminated at Sat Jan  6 02:51:56 2018.
+Results reported at Sat Jan  6 02:51:56 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+filename='project_1'
+
+## cluster setup
+#BSUB -J project_1
+#BSUB -o project_1%J.out
+#BSUB -q hpcintro
+## set wall time hh:mm
+#BSUB -W 10:30 
+#BSUB -R "rusage[mem=2048MB]"
+## set number of cores
+#BSUB -n 1
+
+##  load modules
+module load gcc
+module load studio
+module load python3/3.6.0
+## module load studio
+
+## print test environment
+echo "CPU information"
+lscpu
+
+
+## delete pre analysis
+rm -fr analysis/*
+
+export MFLOPS_MAX_IT=10
+
+arr=(50 850 1600)
+
+echo "\nnow ready for performance test\n"
+echo "matmult_c.gcc nat"
+for i in "${arr[@]}"
+do
+    collect -o ./analysis/test.nat.1.er -p on -S on -h dch -h dcm -h l2h -h l2m matmult_c.gcc nat $i $i $i
+done
+er_print -func ./analysis/test.nat.1.er > ./analysis_out/test.nat.1.$LSB_JOBID.txt
+er_print -func ./analysis/test.nat.2.er > ./analysis_out/test.nat.2.$LSB_JOBID.txt
+er_print -func ./analysis/test.nat.3.er > ./analysis_out/test.nat.3.$LSB_JOBID.txt
+python3 get_analysis.py ./analysis_out/test.nat $LSB_JOBID matmult_nat 3
+
+echo "matmult_c.gcc lib"
+for i in "${arr[@]}"
+do
+    collect -o ./analysis/test.lib.1.er -p on -S on -h dch -h dcm -h l2h -h l2m matmult_c.gcc lib $i $i $i
+done
+er_print -func ./analysis/test.lib.1.er > ./analysis_out/test.lib.1.$LSB_JOBID.txt
+er_print -func ./analysis/test.lib.2.er > ./analysis_out/test.lib.2.$LSB_JOBID.txt
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   1136.32 sec.
+    Max Memory :                                 114 MB
+    Average Memory :                             100.41 MB
+    Total Requested Memory :                     2048.00 MB
+    Delta Memory :                               1934.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                6
+    Run time :                                   1263 sec.
+    Turnaround time :                            1265 sec.
+
+The output (if any) is above this job summary.
+

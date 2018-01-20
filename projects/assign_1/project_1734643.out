@@ -1,0 +1,514 @@
+Loaded dependency [gcc/6.3.0]: binutils
+Loaded module: gcc/6.3.0
+CPU information
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                24
+On-line CPU(s) list:   0-23
+Thread(s) per core:    1
+Core(s) per socket:    12
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
+Stepping:              1
+CPU MHz:               1883.234
+BogoMIPS:              4400.51
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              30720K
+NUMA node0 CPU(s):     0-11
+NUMA node1 CPU(s):     12-23
+arr=(8 12 16 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 180 200 240 280 350 450 550 700 900 1100 1300 1500 1700 1900 2200)
+\nnow ready for performance tests\n
+\nstart matmult_nat\n
+     1.500    300.777 0 # matmult_nat
+     3.375    332.892 0 # matmult_nat
+     6.000    339.976 0 # matmult_nat
+     9.375    329.100 0 # matmult_nat
+    21.094    349.532 0 # matmult_nat
+    37.500    341.412 0 # matmult_nat
+    58.594    342.895 0 # matmult_nat
+    84.375    345.139 0 # matmult_nat
+   114.844    345.308 0 # matmult_nat
+   150.000    348.457 0 # matmult_nat
+   189.844    347.048 0 # matmult_nat
+   234.375    347.763 0 # matmult_nat
+   283.594    348.844 0 # matmult_nat
+   337.500    351.009 0 # matmult_nat
+   396.094    346.777 0 # matmult_nat
+   459.375    344.736 0 # matmult_nat
+   527.344    344.850 0 # matmult_nat
+   600.000    319.198 0 # matmult_nat
+   759.375    327.294 0 # matmult_nat
+   937.500    312.152 0 # matmult_nat
+  1350.000    289.688 0 # matmult_nat
+  1837.500    300.319 0 # matmult_nat
+  2871.094    250.663 0 # matmult_nat
+  4746.094    115.828 0 # matmult_nat
+  7089.844    112.628 0 # matmult_nat
+ 11484.375    154.725 0 # matmult_nat
+ 18984.375    163.786 0 # matmult_nat
+ 28359.375    163.691 0 # matmult_nat
+ 39609.375    172.363 0 # matmult_nat
+ 52734.375    164.191 0 # matmult_nat
+ 67734.375    169.360 0 # matmult_nat
+ 84609.375    171.776 134 # matmult_nat
+113437.500    222.825 448 # matmult_nat
+\nend matmult_nat\n
+\nstart matmult_lib\n
+     1.500   1261.337 0 # matmult_lib
+     3.375   2562.521 0 # matmult_lib
+     6.000   3006.778 0 # matmult_lib
+     9.375   3663.954 0 # matmult_lib
+    21.094   4287.176 0 # matmult_lib
+    37.500   7892.307 0 # matmult_lib
+    58.594   7199.909 0 # matmult_lib
+    84.375   6593.910 0 # matmult_lib
+   114.844   6151.904 0 # matmult_lib
+   150.000   8782.576 0 # matmult_lib
+   189.844   8359.485 0 # matmult_lib
+   234.375   7952.684 0 # matmult_lib
+   283.594   7489.001 0 # matmult_lib
+   337.500   9053.564 0 # matmult_lib
+   396.094   8847.727 0 # matmult_lib
+   459.375   8566.787 0 # matmult_lib
+   527.344   8235.490 0 # matmult_lib
+   600.000   9218.725 0 # matmult_lib
+   759.375   8902.938 0 # matmult_lib
+   937.500   9298.965 0 # matmult_lib
+  1350.000   9213.654 0 # matmult_lib
+  1837.500   9303.477 0 # matmult_lib
+  2871.094   9142.528 0 # matmult_lib
+  4746.094   9295.661 0 # matmult_lib
+  7089.844   9182.527 0 # matmult_lib
+ 11484.375   9304.464 0 # matmult_lib
+ 18984.375   9257.886 0 # matmult_lib
+ 28359.375   9438.612 0 # matmult_lib
+ 39609.375   9440.228 0 # matmult_lib
+ 52734.375   9415.208 0 # matmult_lib
+ 67734.375   9439.330 0 # matmult_lib
+ 84609.375   9563.850 0 # matmult_lib
+113437.500   9548.029 0 # matmult_lib
+\nend matmult_lib\n
+\nstart matmult_nmk\n
+     1.500    293.396 0 # matmult_nmk
+     3.375    325.044 0 # matmult_nmk
+     6.000    334.055 0 # matmult_nmk
+     9.375    324.857 0 # matmult_nmk
+    21.094    347.102 0 # matmult_nmk
+    37.500    341.742 0 # matmult_nmk
+    58.594    345.141 0 # matmult_nmk
+    84.375    348.811 0 # matmult_nmk
+   114.844    351.040 0 # matmult_nmk
+   150.000    352.610 0 # matmult_nmk
+   189.844    351.366 0 # matmult_nmk
+   234.375    350.794 0 # matmult_nmk
+   283.594    352.755 0 # matmult_nmk
+   337.500    354.474 0 # matmult_nmk
+   396.094    352.455 0 # matmult_nmk
+   459.375    351.799 0 # matmult_nmk
+   527.344    351.320 0 # matmult_nmk
+   600.000    318.553 0 # matmult_nmk
+   759.375    348.342 0 # matmult_nmk
+   937.500    331.780 0 # matmult_nmk
+  1350.000    306.004 0 # matmult_nmk
+  1837.500    322.862 0 # matmult_nmk
+  2871.094    323.118 0 # matmult_nmk
+  4746.094    297.217 0 # matmult_nmk
+  7089.844    287.914 0 # matmult_nmk
+ 11484.375    303.951 0 # matmult_nmk
+ 18984.375    306.802 0 # matmult_nmk
+ 28359.375    308.361 0 # matmult_nmk
+ 39609.375    313.521 0 # matmult_nmk
+ 52734.375    310.507 0 # matmult_nmk
+ 67734.375    318.450 0 # matmult_nmk
+ 84609.375    318.074 134 # matmult_nmk
+113437.500    280.694 448 # matmult_nmk
+\nend matmult_nmk\n
+\nstart matmult_mnk\n
+     1.500    286.960 0 # matmult_mnk
+     3.375    314.083 0 # matmult_mnk
+     6.000    339.922 0 # matmult_mnk
+     9.375    345.890 0 # matmult_mnk
+    21.094    352.494 0 # matmult_mnk
+    37.500    339.617 0 # matmult_mnk
+    58.594    345.747 0 # matmult_mnk
+    84.375    346.929 0 # matmult_mnk
+   114.844    345.661 0 # matmult_mnk
+   150.000    349.206 0 # matmult_mnk
+   189.844    348.184 0 # matmult_mnk
+   234.375    349.528 0 # matmult_mnk
+   283.594    348.167 0 # matmult_mnk
+   337.500    353.110 0 # matmult_mnk
+   396.094    348.089 0 # matmult_mnk
+   459.375    346.043 0 # matmult_mnk
+   527.344    342.609 0 # matmult_mnk
+   600.000    315.819 0 # matmult_mnk
+   759.375    321.984 0 # matmult_mnk
+   937.500    313.286 0 # matmult_mnk
+  1350.000    289.953 0 # matmult_mnk
+  1837.500    300.092 0 # matmult_mnk
+  2871.094    252.355 0 # matmult_mnk
+  4746.094    244.359 0 # matmult_mnk
+  7089.844    228.196 0 # matmult_mnk
+ 11484.375    180.964 0 # matmult_mnk
+ 18984.375    170.592 0 # matmult_mnk
+ 28359.375    170.538 0 # matmult_mnk
+ 39609.375    175.119 0 # matmult_mnk
+ 52734.375    198.396 0 # matmult_mnk
+ 67734.375    171.642 0 # matmult_mnk
+ 84609.375    172.939 134 # matmult_mnk
+113437.500    225.296 448 # matmult_mnk
+\nend matmult_mnk\n
+\nstart matmult_mkn\n
+     1.500    296.016 0 # matmult_mkn
+     3.375    323.436 0 # matmult_mkn
+     6.000    340.243 0 # matmult_mkn
+     9.375    348.290 0 # matmult_mkn
+    21.094    347.773 0 # matmult_mkn
+    37.500    341.616 0 # matmult_mkn
+    58.594    334.925 0 # matmult_mkn
+    84.375    344.469 0 # matmult_mkn
+   114.844    352.481 0 # matmult_mkn
+   150.000    344.447 0 # matmult_mkn
+   189.844    342.085 0 # matmult_mkn
+   234.375    351.420 0 # matmult_mkn
+   283.594    355.407 0 # matmult_mkn
+   337.500    357.060 0 # matmult_mkn
+   396.094    357.958 0 # matmult_mkn
+   459.375    356.078 0 # matmult_mkn
+   527.344    357.138 0 # matmult_mkn
+   600.000    357.562 0 # matmult_mkn
+   759.375    357.548 0 # matmult_mkn
+   937.500    359.325 0 # matmult_mkn
+  1350.000    359.565 0 # matmult_mkn
+  1837.500    360.881 0 # matmult_mkn
+  2871.094    361.222 0 # matmult_mkn
+  4746.094    361.862 0 # matmult_mkn
+  7089.844    362.551 0 # matmult_mkn
+ 11484.375    362.651 0 # matmult_mkn
+ 18984.375    360.184 0 # matmult_mkn
+ 28359.375    359.826 0 # matmult_mkn
+ 39609.375    361.171 0 # matmult_mkn
+ 52734.375    361.603 0 # matmult_mkn
+ 67734.375    361.713 0 # matmult_mkn
+ 84609.375    361.874 134 # matmult_mkn
+113437.500    362.040 448 # matmult_mkn
+\nend matmult_mkn\n
+\nstart matmult_nkm\n
+     1.500    286.321 0 # matmult_nkm
+     3.375    316.329 0 # matmult_nkm
+     6.000    322.804 0 # matmult_nkm
+     9.375    333.712 0 # matmult_nkm
+    21.094    338.201 0 # matmult_nkm
+    37.500    325.688 0 # matmult_nkm
+    58.594    335.689 0 # matmult_nkm
+    84.375    336.889 0 # matmult_nkm
+   114.844    338.945 0 # matmult_nkm
+   150.000    335.769 0 # matmult_nkm
+   189.844    341.106 0 # matmult_nkm
+   234.375    341.824 0 # matmult_nkm
+   283.594    341.708 0 # matmult_nkm
+   337.500    340.915 0 # matmult_nkm
+   396.094    341.865 0 # matmult_nkm
+   459.375    329.280 0 # matmult_nkm
+   527.344    321.900 0 # matmult_nkm
+   600.000    292.722 0 # matmult_nkm
+   759.375    295.537 0 # matmult_nkm
+   937.500    282.394 0 # matmult_nkm
+  1350.000    267.267 0 # matmult_nkm
+  1837.500    271.236 0 # matmult_nkm
+  2871.094    241.727 0 # matmult_nkm
+  4746.094    239.728 0 # matmult_nkm
+  7089.844    233.846 0 # matmult_nkm
+ 11484.375    257.068 0 # matmult_nkm
+ 18984.375    268.409 0 # matmult_nkm
+ 28359.375    260.552 0 # matmult_nkm
+ 39609.375    260.837 0 # matmult_nkm
+ 52734.375    215.960 0 # matmult_nkm
+ 67734.375    207.684 0 # matmult_nkm
+ 84609.375    152.479 134 # matmult_nkm
+113437.500    168.014 448 # matmult_nkm
+\nend matmult_nkm\n
+\nstart matmult_kmn\n
+     1.500    294.221 0 # matmult_kmn
+     3.375    315.934 0 # matmult_kmn
+     6.000    332.956 0 # matmult_kmn
+     9.375    348.183 0 # matmult_kmn
+    21.094    355.994 0 # matmult_kmn
+    37.500    340.630 0 # matmult_kmn
+    58.594    344.131 0 # matmult_kmn
+    84.375    349.893 0 # matmult_kmn
+   114.844    352.567 0 # matmult_kmn
+   150.000    353.677 0 # matmult_kmn
+   189.844    352.292 0 # matmult_kmn
+   234.375    357.144 0 # matmult_kmn
+   283.594    355.406 0 # matmult_kmn
+   337.500    348.782 0 # matmult_kmn
+   396.094    357.747 0 # matmult_kmn
+   459.375    357.124 0 # matmult_kmn
+   527.344    358.011 0 # matmult_kmn
+   600.000    355.593 0 # matmult_kmn
+   759.375    352.233 0 # matmult_kmn
+   937.500    357.001 0 # matmult_kmn
+  1350.000    356.477 0 # matmult_kmn
+  1837.500    358.470 0 # matmult_kmn
+  2871.094    357.241 0 # matmult_kmn
+  4746.094    361.116 0 # matmult_kmn
+  7089.844    361.321 0 # matmult_kmn
+ 11484.375    362.553 0 # matmult_kmn
+ 18984.375    363.167 0 # matmult_kmn
+ 28359.375    362.633 0 # matmult_kmn
+ 39609.375    360.770 0 # matmult_kmn
+ 52734.375    359.689 0 # matmult_kmn
+ 67734.375    360.023 0 # matmult_kmn
+ 84609.375    361.244 134 # matmult_kmn
+113437.500    360.619 448 # matmult_kmn
+\nend matmult_kmn\n
+\nstart matmult_knm\n
+     1.500    286.003 0 # matmult_knm
+     3.375    313.471 0 # matmult_knm
+     6.000    327.564 0 # matmult_knm
+     9.375    316.080 0 # matmult_knm
+    21.094    340.267 0 # matmult_knm
+    37.500    332.481 0 # matmult_knm
+    58.594    336.977 0 # matmult_knm
+    84.375    338.657 0 # matmult_knm
+   114.844    341.055 0 # matmult_knm
+   150.000    339.088 0 # matmult_knm
+   189.844    343.740 0 # matmult_knm
+   234.375    343.267 0 # matmult_knm
+   283.594    343.621 0 # matmult_knm
+   337.500    342.291 0 # matmult_knm
+   396.094    340.270 0 # matmult_knm
+   459.375    332.948 0 # matmult_knm
+   527.344    325.734 0 # matmult_knm
+   600.000    294.199 0 # matmult_knm
+   759.375    298.017 0 # matmult_knm
+   937.500    282.437 0 # matmult_knm
+  1350.000    266.380 0 # matmult_knm
+  1837.500    271.417 0 # matmult_knm
+  2871.094    238.109 0 # matmult_knm
+  4746.094    236.453 0 # matmult_knm
+  7089.844    230.411 0 # matmult_knm
+ 11484.375    261.458 0 # matmult_knm
+ 18984.375    250.797 0 # matmult_knm
+ 28359.375    201.902 0 # matmult_knm
+ 39609.375    185.610 0 # matmult_knm
+ 52734.375    176.557 0 # matmult_knm
+ 67734.375    201.015 0 # matmult_knm
+ 84609.375    155.169 134 # matmult_knm
+113437.500    167.020 448 # matmult_knm
+\nend matmult_knm\n
+\nstart matmult_blk_36\n
+     1.500    189.524 0 # matmult_blk 36
+     3.375    212.473 0 # matmult_blk 36
+     6.000    223.969 0 # matmult_blk 36
+     9.375    211.839 0 # matmult_blk 36
+    21.094    223.668 0 # matmult_blk 36
+    37.500    224.168 0 # matmult_blk 36
+    58.594    226.363 0 # matmult_blk 36
+    84.375    224.770 0 # matmult_blk 36
+   114.844    228.167 0 # matmult_blk 36
+   150.000    226.892 0 # matmult_blk 36
+   189.844    229.792 0 # matmult_blk 36
+   234.375    227.794 0 # matmult_blk 36
+   283.594    227.008 0 # matmult_blk 36
+   337.500    229.078 0 # matmult_blk 36
+   396.094    226.653 0 # matmult_blk 36
+   459.375    227.662 0 # matmult_blk 36
+   527.344    228.201 0 # matmult_blk 36
+   600.000    229.342 0 # matmult_blk 36
+   759.375    228.163 0 # matmult_blk 36
+   937.500    226.766 0 # matmult_blk 36
+  1350.000    227.237 0 # matmult_blk 36
+  1837.500    227.376 0 # matmult_blk 36
+  2871.094    227.109 0 # matmult_blk 36
+  4746.094    227.703 0 # matmult_blk 36
+  7089.844    227.658 0 # matmult_blk 36
+ 11484.375    227.675 0 # matmult_blk 36
+ 18984.375    228.359 0 # matmult_blk 36
+ 28359.375    227.822 0 # matmult_blk 36
+ 39609.375    227.736 0 # matmult_blk 36
+ 52734.375    227.831 0 # matmult_blk 36
+ 67734.375    228.203 0 # matmult_blk 36
+ 84609.375    227.596 134 # matmult_blk 36
+113437.500    228.084 448 # matmult_blk 36
+\nend matmult_blk_36\n
+\nstart matmult_blk_103\n
+     1.500    187.375 0 # matmult_blk 103
+     3.375    211.814 0 # matmult_blk 103
+     6.000    223.008 0 # matmult_blk 103
+     9.375    211.424 0 # matmult_blk 103
+    21.094    223.180 0 # matmult_blk 103
+    37.500    229.099 0 # matmult_blk 103
+    58.594    232.199 0 # matmult_blk 103
+    84.375    234.743 0 # matmult_blk 103
+   114.844    236.697 0 # matmult_blk 103
+   150.000    238.337 0 # matmult_blk 103
+   189.844    239.106 0 # matmult_blk 103
+   234.375    239.956 0 # matmult_blk 103
+   283.594    236.076 0 # matmult_blk 103
+   337.500    239.131 0 # matmult_blk 103
+   396.094    236.169 0 # matmult_blk 103
+   459.375    237.108 0 # matmult_blk 103
+   527.344    237.854 0 # matmult_blk 103
+   600.000    238.506 0 # matmult_blk 103
+   759.375    239.382 0 # matmult_blk 103
+   937.500    240.124 0 # matmult_blk 103
+  1350.000    231.844 0 # matmult_blk 103
+  1837.500    239.204 0 # matmult_blk 103
+  2871.094    238.649 0 # matmult_blk 103
+  4746.094    239.038 0 # matmult_blk 103
+  7089.844    239.212 0 # matmult_blk 103
+ 11484.375    239.849 0 # matmult_blk 103
+ 18984.375    239.831 0 # matmult_blk 103
+ 28359.375    239.948 0 # matmult_blk 103
+ 39609.375    240.585 0 # matmult_blk 103
+ 52734.375    240.910 0 # matmult_blk 103
+ 67734.375    241.280 0 # matmult_blk 103
+ 84609.375    241.048 134 # matmult_blk 103
+113437.500    240.525 448 # matmult_blk 103
+\nend matmult_blk_103\n
+\nstart matmult_blk_1103\n
+     1.500    189.823 0 # matmult_blk 1103
+     3.375    212.442 0 # matmult_blk 1103
+     6.000    224.044 0 # matmult_blk 1103
+     9.375    211.788 0 # matmult_blk 1103
+    21.094    223.670 0 # matmult_blk 1103
+    37.500    229.716 0 # matmult_blk 1103
+    58.594    233.369 0 # matmult_blk 1103
+    84.375    235.719 0 # matmult_blk 1103
+   114.844    236.838 0 # matmult_blk 1103
+   150.000    238.931 0 # matmult_blk 1103
+   189.844    239.825 0 # matmult_blk 1103
+   234.375    240.673 0 # matmult_blk 1103
+   283.594    240.610 0 # matmult_blk 1103
+   337.500    241.964 0 # matmult_blk 1103
+   396.094    242.418 0 # matmult_blk 1103
+   459.375    242.548 0 # matmult_blk 1103
+   527.344    242.938 0 # matmult_blk 1103
+   600.000    243.390 0 # matmult_blk 1103
+   759.375    243.478 0 # matmult_blk 1103
+   937.500    243.766 0 # matmult_blk 1103
+  1350.000    244.639 0 # matmult_blk 1103
+  1837.500    244.977 0 # matmult_blk 1103
+  2871.094    245.595 0 # matmult_blk 1103
+  4746.094    245.968 0 # matmult_blk 1103
+  7089.844    246.342 0 # matmult_blk 1103
+ 11484.375    246.641 0 # matmult_blk 1103
+ 18984.375    246.802 0 # matmult_blk 1103
+ 28359.375    246.497 0 # matmult_blk 1103
+ 39609.375    246.135 0 # matmult_blk 1103
+ 52734.375    246.292 0 # matmult_blk 1103
+ 67734.375    242.369 0 # matmult_blk 1103
+ 84609.375    242.946 134 # matmult_blk 1103
+113437.500    244.741 448 # matmult_blk 1103
+\nend matmult_blk_1103\n
+\n end of performance tests\n
+Loaded module: python3/3.6.0
+File created: matmult_nat.txt
+File created: matmult_lib.txt
+File created: matmult_mnk.txt
+File created: matmult_mkn.txt
+File created: matmult_nkm.txt
+File created: matmult_kmn.txt
+File created: matmult_knm.txt
+File created: matmult_nmk.txt
+File created: matmult_blk_36.txt
+File created: matmult_blk_103.txt
+File created: matmult_blk_1103.txt
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-21-100>
+Subject: Job 734643: <project_1> in cluster <dcc> Done
+
+Job <project_1> was submitted from host <hpclogin3> by user <s160159> in cluster <dcc> at Fri Jan  5 17:16:35 2018.
+Job was executed on host(s) <n-62-21-100>, in queue <hpcintro>, as user <s160159> in cluster <dcc> at Fri Jan  5 17:16:36 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/projects/assign_1> was used as the working directory.
+Started at Fri Jan  5 17:16:36 2018.
+Terminated at Fri Jan  5 18:18:26 2018.
+Results reported at Fri Jan  5 18:18:26 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+filename='project_1'
+
+## cluster setup
+#BSUB -J project_1
+#BSUB -o project_1%J.out
+#BSUB -q hpcintro
+## set wall time hh:mm
+#BSUB -W 5:30 
+#BSUB -R "rusage[mem=2048MB]"
+## set number of cores
+#BSUB -n 1
+
+##  load modules
+module load gcc
+## module load studio
+
+## print test environment
+echo "CPU information"
+lscpu
+
+## declare an array variable
+arr=(8 12 16 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 180 200 240 280 350 450 550 700 900 1100 1300 1500 1700 1900 2200)
+echo "arr=(${arr[*]})"
+
+echo "\nnow ready for performance tests\n"
+
+echo "\nstart matmult_nat\n"
+for i in "${arr[@]}"
+do
+  matmult_c.gcc nat $i $i $i
+done
+echo "\nend matmult_nat\n"
+
+echo "\nstart matmult_lib\n"
+for i in "${arr[@]}"
+do
+  matmult_c.gcc lib $i $i $i
+done
+echo "\nend matmult_lib\n"
+
+
+
+## 
+echo "\nstart matmult_nmk\n"
+for i in "${arr[@]}"
+do
+  matmult_c.gcc nmk $i $i $i
+done
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   3602.72 sec.
+    Max Memory :                                 167 MB
+    Average Memory :                             86.97 MB
+    Total Requested Memory :                     2048.00 MB
+    Delta Memory :                               1881.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   3709 sec.
+    Turnaround time :                            3711 sec.
+
+The output (if any) is above this job summary.
+

@@ -1,0 +1,155 @@
+Loaded dependency [gcc/6.3.0]: binutils
+Loaded module: gcc/6.3.0
+CPU information
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                24
+On-line CPU(s) list:   0-23
+Thread(s) per core:    1
+Core(s) per socket:    12
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
+Stepping:              1
+CPU MHz:               1199.859
+BogoMIPS:              4400.51
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              30720K
+NUMA node0 CPU(s):     0-11
+NUMA node1 CPU(s):     12-23
+arr=(30 35 40 41 42 43 44 45 46 47 48 49 50 60 90 95 100 105 110 120 130 135 140 145 150 1000 1100 1110 1120 1130 1140 1150 1160 1200 1300 1400 1500 1600)
+\nnow ready for performance tests\n
+\nstart matmult_blk_1500\n
+ 52734.375   1503.327 0 # matmult_blk 30
+ 52734.375   1511.833 0 # matmult_blk 35
+ 52734.375   1346.493 0 # matmult_blk 40
+ 52734.375   1516.614 0 # matmult_blk 41
+ 52734.375   1356.651 0 # matmult_blk 42
+ 52734.375   1515.321 0 # matmult_blk 43
+ 52734.375   1353.329 0 # matmult_blk 44
+ 52734.375   1457.660 0 # matmult_blk 45
+ 52734.375   1307.744 0 # matmult_blk 46
+ 52734.375   1312.016 0 # matmult_blk 47
+ 52734.375   1314.077 0 # matmult_blk 48
+ 52734.375   1317.254 0 # matmult_blk 49
+ 52734.375   1317.992 0 # matmult_blk 50
+ 52734.375   1348.152 0 # matmult_blk 60
+ 52734.375   1424.822 0 # matmult_blk 90
+ 52734.375   1435.145 0 # matmult_blk 95
+ 52734.375   1447.687 0 # matmult_blk 100
+ 52734.375   1458.258 0 # matmult_blk 105
+ 52734.375   1457.938 0 # matmult_blk 110
+ 52734.375   1469.768 0 # matmult_blk 120
+ 52734.375   1456.944 0 # matmult_blk 130
+ 52734.375   1457.801 0 # matmult_blk 135
+ 52734.375   1456.270 0 # matmult_blk 140
+ 52734.375   1442.082 0 # matmult_blk 145
+ 52734.375   1451.041 0 # matmult_blk 150
+ 52734.375   1504.559 0 # matmult_blk 1000
+ 52734.375   1471.808 0 # matmult_blk 1100
+ 52734.375   1460.361 0 # matmult_blk 1110
+ 52734.375   1447.483 0 # matmult_blk 1120
+ 52734.375   1445.095 0 # matmult_blk 1130
+ 52734.375   1443.847 0 # matmult_blk 1140
+ 52734.375   1437.119 0 # matmult_blk 1150
+ 52734.375   1431.936 0 # matmult_blk 1160
+ 52734.375   1421.340 0 # matmult_blk 1200
+ 52734.375   1427.869 0 # matmult_blk 1300
+ 52734.375   1463.949 0 # matmult_blk 1400
+ 52734.375   1489.241 0 # matmult_blk 1500
+ 52734.375   1512.304 0 # matmult_blk 1600
+\nend matmult_blk_1500\n
+\n end of performance tests\n
+Loaded module: python3/3.6.0
+File created: matmult_blk_1500.txt
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-21-100>
+Subject: Job 734635: <project_1> in cluster <dcc> Done
+
+Job <project_1> was submitted from host <hpclogin3> by user <s160159> in cluster <dcc> at Fri Jan  5 17:10:52 2018.
+Job was executed on host(s) <n-62-21-100>, in queue <hpcintro>, as user <s160159> in cluster <dcc> at Fri Jan  5 17:10:52 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/projects/assign_1> was used as the working directory.
+Started at Fri Jan  5 17:10:52 2018.
+Terminated at Fri Jan  5 17:14:24 2018.
+Results reported at Fri Jan  5 17:14:24 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+filename='project_1'
+
+## cluster setup
+#BSUB -J project_1
+#BSUB -o project_1%J.out
+#BSUB -q hpcintro
+## set wall time hh:mm
+#BSUB -W 2:00 
+#BSUB -R "rusage[mem=2048MB]"
+## set number of cores
+#BSUB -n 1
+
+##  load modules
+module load gcc
+## module load studio
+
+## print test environment
+echo "CPU information"
+lscpu
+
+## declare an array variable
+arr=(30 35 40 41 42 43 44 45 46 47 48 49 50 60 90 95 100 105 110 120 130 135 140 145 150 1000 1100 1110 1120 1130 1140 1150 1160 1200 1300 1400 1500 1600)
+echo "arr=(${arr[*]})"
+
+echo "\nnow ready for performance tests\n"
+
+
+##
+echo "\nstart matmult_blk_1500\n"
+for i in "${arr[@]}"
+do
+  matmult_c.gcc blk 1500 1500 1500 $i
+done
+echo "\nend matmult_blk_1500\n"
+
+echo "\n end of performance tests\n"
+
+## create data file
+module load python3/3.6.0
+b='.out'
+c=$filename$LSB_JOBID$b
+
+
+python3 get_performance.py $c ./out/ matmult_blk_1500 $LSB_JOBID
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   208.24 sec.
+    Max Memory :                                 80 MB
+    Average Memory :                             66.67 MB
+    Total Requested Memory :                     2048.00 MB
+    Delta Memory :                               1968.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   212 sec.
+    Turnaround time :                            212 sec.
+
+The output (if any) is above this job summary.
+

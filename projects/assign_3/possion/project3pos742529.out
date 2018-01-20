@@ -1,0 +1,100 @@
+Loaded module: cuda/9.1
+Loaded dependency [gcc/6.3.0]: binutils
+Loaded module: gcc/6.3.0
+\nstart performance_pos\n
+1.0086e+08	27.6461	0.0664803	1.51714	1.51714	1.51714	# cpu
+1.0086e+08	0.0578973	0.000139225	724.439	0.0108538	724.439	# gpu1
+1.0086e+08	287.018	0.690189	0.146134	0.0108122	0.146134	# gpu2
+1.0086e+08	457.32	1.09971	0.0917148	0.010901	0.0917148	# gpu3
+\nend performance_pos\n
+Loaded module: python3/3.6.0
+Traceback (most recent call last):
+  File "get_performance_pos.py", line 91, in <module>
+    get_performance(input_file=sys.argv[1], out_dir =sys.argv[2], pattern=sys.argv[3])
+  File "get_performance_pos.py", line 14, in get_performance
+    tmp_str = txt_arr[tmp_idx[0]][5:-2].split(' ')
+IndexError: list index out of range
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-2>
+Subject: Job 742529: <project3pos> in cluster <dcc> Exited
+
+Job <project3pos> was submitted from host <hpclogin3> by user <s160159> in cluster <dcc> at Fri Jan 19 12:04:57 2018.
+Job was executed on host(s) <12*n-62-20-2>, in queue <gpuv100>, as user <s160159> in cluster <dcc> at Fri Jan 19 12:05:12 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/projects/assign_3/possion> was used as the working directory.
+Started at Fri Jan 19 12:05:12 2018.
+Terminated at Fri Jan 19 12:17:24 2018.
+Results reported at Fri Jan 19 12:17:24 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+filename='project3pos'
+
+## cluster setup
+#BSUB -J project3pos
+#BSUB -o project3pos%J.out
+#BSUB -q gpuv100
+#BSUB -gpu "num=2:mode=exclusive_process:mps=yes"
+## set wall time hh:mm
+#BSUB -W 00:25 
+#BSUB -R "rusage[mem=1024MB] span[hosts=1]"
+## set number of cores
+#BSUB -n 12
+
+##  load modules
+module load cuda/9.1
+module load gcc/6.3.0
+
+## data dirs
+mkdir -p analysis/pos
+rm -rf analysis/pos/*
+
+N=2048
+max_iter=1000
+echo "\nstart performance_pos\n"
+cd ./CPU/
+OMP_NUM_THREADS=12 jac_cpu $N $max_iter
+cd ./..
+cd ./GPU/
+jac_gpu1 $N $max_iter
+jac_gpu2 $N $max_iter
+jac_gpu3 $N $max_iter
+cd ./..
+echo "\nend performance_pos\n"
+
+## create data file
+module load python3/3.6.0
+
+c=$filename$LSB_JOBID'.out'
+python3 get_performance_pos.py $c ./analysis/matmult/ performance_pos
+
+## module load matplotlib/2.0.2-python-3.6.2
+## python3 get_vis.py ./../analysis/pos/jac_cpu.txt 
+## python3 get_vis.py ./../analysis/pos/jac_gpu1.txt 
+## python3 get_vis.py ./../analysis/pos/jac_gpu2.txt 
+## python3 get_vis.py ./../analysis/pos/jac_gpu3.txt 
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   1031.43 sec.
+    Max Memory :                                 63 MB
+    Average Memory :                             62.50 MB
+    Total Requested Memory :                     12288.00 MB
+    Delta Memory :                               12225.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                7
+    Run time :                                   732 sec.
+    Turnaround time :                            747 sec.
+
+The output (if any) is above this job summary.
+

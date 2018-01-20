@@ -1,0 +1,28 @@
+TARGET = main_jac_gpu_v1
+SRCS	 = main_jac_gpu_v1.cu
+OBJS	 = main_jac_gpu_v1.o
+
+OPT	= -g
+PIC	=
+XOPTS = -Xptxas=-v
+ARCH  = -arch=sm_70
+OMP   = -fopenmp
+
+CXX	= nvcc
+CXXFLAGS= --compiler-options "$(OPT) $(PIC) $(OMP)" $(ARCH) $(XOPTS) 
+
+CUDA_PATH ?= /appl/cuda/9.1
+INCLUDES = -I$(CUDA_PATH)/include -I$(CUDA_PATH)/samples/common/inc
+
+SOFLAGS =
+XLIBS	= -L$(CUDA_PATH)/lib -lcublas
+
+$(TARGET): $(OBJS)
+	$(CXX) -o $@ $(CXXFLAGS) $(SOFLAGS) $(INCLUDES) $^ $(XLIBS) 
+
+.SUFFIXES: .cu
+.cu.o:
+	$(CXX) -o $*.o -c $*.cu $(CXXFLAGS) $(SOFLAGS) $(INCLUDES)
+
+clean:
+	@/bin/rm -f $(TARGET) $(OBJS) 

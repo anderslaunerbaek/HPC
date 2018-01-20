@@ -1,0 +1,29 @@
+TARGET	= libmatmult.so
+LIBSRCS	= func.cu
+LIBOBJS	= $(LIBSRCS:.cu=.o)
+
+OPT	= -g -O3
+PIC = -fpic
+OMP   = -fopenmp
+XPIC  = -Xcompiler -fpic
+XOPT  = -Xptxas=-v -G -g# use -lineinfo for profiler, use -G for debugging
+XARCH = -arch=sm_70
+
+CXX	= nvcc
+CXXFLAGS = --compiler-options "$(OPT) $(PIC) $(OMP)" $(XARCH) $(XOPT) $(XPIC)
+
+CUDA_PATH ?= /appl/cuda/9.1
+INCLUDES = -I$(CUDA_PATH)/include -I$(CUDA_PATH)/samples/common/inc 
+
+SOFLAGS = -shared
+XLIBS	= -L$(CUDA_PATH)/lib -lcublas -L/usr/lib64/atlas -lsatlas
+
+$(TARGET): $(LIBOBJS)
+	$(CXX) -o $@ $(CXXFLAGS) $(SOFLAGS) $(INCLUDES) $^ $(XLIBS)
+
+.SUFFIXES: .cu
+.cu.o:
+	$(CXX) -o $*.o -c $*.cu $(CXXFLAGS) $(SOFLAGS) $(INCLUDES)
+
+clean:
+	/bin/rm -f $(TARGET) $(LIBOBJS)

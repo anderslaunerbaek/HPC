@@ -1,0 +1,91 @@
+Loaded module: cuda/9.1
+Loaded dependency [gcc/6.3.0]: binutils
+Loaded module: gcc/6.3.0
+
+
+\nstart performance_pos\n
+1.0086e+08	27.3928	0.0658711	1.53117	1.53117	1.53117	# cpu
+1.0086e+08	0.0578573	0.000139129	724.939	0.0108417	724.939	# gpu1
+1.0086e+08	12671.7	30.4715	0.00330997	0.136894	0.00330997	# gpu2
+1.0086e+08	519.642	1.24958	0.0807153	0.0109096	0.0807153	# gpu3
+\nend performance_pos\n
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-4>
+Subject: Job 742059: <project3pos> in cluster <dcc> Done
+
+Job <project3pos> was submitted from host <n-62-20-1> by user <s160159> in cluster <dcc> at Fri Jan 19 08:56:37 2018.
+Job was executed on host(s) <12*n-62-20-4>, in queue <gpuv100>, as user <s160159> in cluster <dcc> at Fri Jan 19 08:56:38 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/projects/assign_3/possion> was used as the working directory.
+Started at Fri Jan 19 08:56:38 2018.
+Terminated at Fri Jan 19 09:08:48 2018.
+Results reported at Fri Jan 19 09:08:48 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+filename='project3pos'
+
+## cluster setup
+#BSUB -J project3pos
+#BSUB -o project3pos%J.out
+#BSUB -q gpuv100
+#BSUB -gpu "num=2:mode=exclusive_process:mps=yes"
+## set wall time hh:mm
+#BSUB -W 00:59 
+#BSUB -R "rusage[mem=1024MB] span[hosts=1]"
+## set number of cores
+#BSUB -n 12
+
+##  load modules
+module load cuda/9.1
+module load gcc/6.3.0
+
+## data dirs
+mkdir -p analysis/pos
+rm -rf analysis/pos/*
+
+N=2048
+max_iter=1000
+
+cd ./CPU/
+OMP_NUM_THREADS=12 jac_cpu $N $max_iter
+cd ./..
+cd ./GPU/
+jac_gpu1 $N $max_iter
+jac_gpu2 $N $max_iter
+jac_gpu3 $N $max_iter
+cd ./..
+
+
+## ## create data file
+## module load python3/3.6.0
+## module load matplotlib/2.0.2-python-3.6.2
+## python3 get_vis.py ./../analysis/pos/jac_cpu.txt 
+## python3 get_vis.py ./../analysis/pos/jac_gpu1.txt 
+## python3 get_vis.py ./../analysis/pos/jac_gpu2.txt 
+## python3 get_vis.py ./../analysis/pos/jac_gpu3.txt 
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   1016.33 sec.
+    Max Memory :                                 61 MB
+    Average Memory :                             60.81 MB
+    Total Requested Memory :                     12288.00 MB
+    Delta Memory :                               12227.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                7
+    Run time :                                   751 sec.
+    Turnaround time :                            731 sec.
+
+The output (if any) is above this job summary.
+

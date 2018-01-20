@@ -1,2 +1,1 @@
-# HPC
-High-Performance Computing
+# HCP

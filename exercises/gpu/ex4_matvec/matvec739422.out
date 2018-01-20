@@ -1,0 +1,91 @@
+Loaded module: cuda/9.1
+Loaded dependency [gcc/6.3.0]: binutils
+Loaded module: gcc/6.3.0
+Naive
+3.92112e+08	3856.29	54.5831	15429.6	1718.22	0.0763389	0.0763134	2.5413e-05
+cuBLAS
+3.92112e+08	3376.06	47.7857	13508.1	1504.24	0.076251	0.0762219	2.90279e-05
+Naive split
+/zhome/d4/8/112215/.lsbatch/1516123455.739422.shell: line 40:  9224 Segmentation fault      ./naive_split/matvec $M $N
+bsub -q gpuv100i -app voltash -gpu "num=2:mode=shared"  -env TERM,LSF_QRSH -Is -J qrsh "reset; /bin/bash -l"
+Invalid syntax for option -env. Job not submitted.
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-16-17>
+Subject: Job 739422: <matvec> in cluster <dcc> Done
+
+Job <matvec> was submitted from host <n-62-20-3> by user <s160159> in cluster <dcc> at Tue Jan 16 18:24:15 2018.
+Job was executed on host(s) <n-62-16-17>, in queue <gpum2050>, as user <s160159> in cluster <dcc> at Tue Jan 16 18:24:15 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/exercises/gpu/ex4_matvec> was used as the working directory.
+Started at Tue Jan 16 18:24:15 2018.
+Terminated at Tue Jan 16 18:24:28 2018.
+Results reported at Tue Jan 16 18:24:28 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#!/bin/bash
+
+filename='matvec'
+
+## cluster setup
+#BSUB -J matvec
+#BSUB -o matvec%J.out
+##BSUB -q gputitanxpascal
+#BSUB -q gpum2050
+### -- Select the resources: 1 gpu in exclusive process mode --
+#BSUB -gpu "num=2:mode=exclusive_process"
+## set wall time hh:mm
+#BSUB -W 00:05 
+#BSUB -R "rusage[mem=4096MB] span[hosts=1]"
+## set number of cores
+#BSUB -n 1
+
+##  load modules
+module load cuda/9.1
+module load gcc/6.3.0
+
+
+
+N=7000
+M=7000
+
+echo "Naive"
+./naive/matvec $M $N
+
+sleep 5
+
+echo "cuBLAS"
+./cuBLAS/matvec $M $N
+
+sleep 5
+
+echo "Naive split"
+./naive_split/matvec $M $N
+
+
+voltash
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   1.80 sec.
+    Max Memory :                                 4 MB
+    Average Memory :                             4.00 MB
+    Total Requested Memory :                     4096.00 MB
+    Delta Memory :                               4092.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   26 sec.
+    Turnaround time :                            13 sec.
+
+The output (if any) is above this job summary.
+

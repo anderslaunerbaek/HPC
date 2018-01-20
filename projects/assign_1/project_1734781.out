@@ -1,0 +1,126 @@
+Loaded dependency [gcc/6.3.0]: binutils
+Loaded module: gcc/6.3.0
+Loaded module: studio/12u5
+Loaded module: python3/3.6.0
+CPU information
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                24
+On-line CPU(s) list:   0-23
+Thread(s) per core:    1
+Core(s) per socket:    12
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
+Stepping:              1
+CPU MHz:               1298.687
+BogoMIPS:              4400.61
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              30720K
+NUMA node0 CPU(s):     0-11
+NUMA node1 CPU(s):     12-23
+\nnow ready for performance test\n
+matmult_c.gcc nat
+Creating experiment database ./analysis/test.nat.1.er (Process ID: 3714) ...
+    58.594   1395.089 0 # matmult_nat
+name test.nat.1.er is in use; changed to test.nat.2.er
+Creating experiment database ./analysis/test.nat.2.er (Process ID: 3720) ...
+ 16933.594   1159.932 0 # matmult_nat
+name test.nat.1.er is in use; changed to test.nat.3.er
+Creating experiment database ./analysis/test.nat.3.er (Process ID: 3751) ...
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-21-97>
+Subject: Job 734781: <project_1> in cluster <dcc> Exited
+
+Job <project_1> was submitted from host <hpclogin3> by user <s160159> in cluster <dcc> at Sat Jan  6 09:10:30 2018.
+Job was executed on host(s) <n-62-21-97>, in queue <hpcintro>, as user <s160159> in cluster <dcc> at Sat Jan  6 09:10:30 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/projects/assign_1> was used as the working directory.
+Started at Sat Jan  6 09:10:30 2018.
+Terminated at Sat Jan  6 09:11:48 2018.
+Results reported at Sat Jan  6 09:11:48 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+filename='project_1'
+
+## cluster setup
+#BSUB -J project_1
+#BSUB -o project_1%J.out
+#BSUB -q hpcintro
+## set wall time hh:mm
+#BSUB -W 10:30 
+#BSUB -R "rusage[mem=2048MB]"
+## set number of cores
+#BSUB -n 1
+
+##  load modules
+module load gcc
+module load studio
+module load python3/3.6.0
+## module load studio
+
+## print test environment
+echo "CPU information"
+lscpu
+
+
+## delete pre analysis
+rm -fr analysis/*
+
+export MFLOPS_MAX_IT=10
+
+arr=(50 850 1600)
+
+echo "\nnow ready for performance test\n"
+echo "matmult_c.gcc nat"
+for i in "${arr[@]}"
+do
+    collect -o ./analysis/test.nat.1.er -p on -S on -h dch -h dcm -h l2h -h l2m matmult_c.gcc nat $i $i $i
+done
+er_print -func ./analysis/test.nat.1.er > ./analysis_out/test.nat.1.$LSB_JOBID.txt
+er_print -func ./analysis/test.nat.2.er > ./analysis_out/test.nat.2.$LSB_JOBID.txt
+er_print -func ./analysis/test.nat.3.er > ./analysis_out/test.nat.3.$LSB_JOBID.txt
+python3 get_analysis.py ./analysis_out/test.nat $LSB_JOBID matmult_nat 3
+
+echo "matmult_c.gcc lib"
+for i in "${arr[@]}"
+do
+    collect -o ./analysis/test.lib.1.er -p on -S on -h dch -h dcm -h l2h -h l2m matmult_c.gcc lib $i $i $i
+done
+er_print -func ./analysis/test.lib.1.er > ./analysis_out/test.lib.1.$LSB_JOBID.txt
+er_print -func ./analysis/test.lib.2.er > ./analysis_out/test.lib.2.$LSB_JOBID.txt
+
+(... more ...)
+------------------------------------------------------------
+
+TERM_OWNER: job killed by owner.
+Exited with exit code 130.
+
+Resource usage summary:
+
+    CPU time :                                   76.06 sec.
+    Max Memory :                                 112 MB
+    Average Memory :                             79.50 MB
+    Total Requested Memory :                     2048.00 MB
+    Delta Memory :                               1936.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   91 sec.
+    Turnaround time :                            78 sec.
+
+The output (if any) is above this job summary.
+

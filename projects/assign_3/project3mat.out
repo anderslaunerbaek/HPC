@@ -1,0 +1,237 @@
+Loaded module: cuda/9.1
+Loaded dependency [gcc/6.3.0]: binutils
+Loaded module: gcc/6.3.0
+arr=(32 64 128)
+\nstart performance\n
+    24.000     20.731 # matmult_lib
+    24.000      1.988 # matmult_gpu1
+    24.000     37.422 # matmult_gpu2
+    24.000     36.607 # matmult_gpu3
+    24.000     35.535 # matmult_gpu4
+    24.000     35.381 # matmult_gpu5
+    24.000      0.299 # matmult_gpulib
+    96.000    283.814 # matmult_lib
+    96.000      2.222 # matmult_gpu1
+    96.000    287.082 # matmult_gpu2
+    96.000    281.843 # matmult_gpu3
+    96.000    258.362 # matmult_gpu4
+    96.000    260.029 # matmult_gpu5
+    96.000      2.405 # matmult_gpulib
+   384.000   3781.257 # matmult_lib
+   384.000      2.324 # matmult_gpu1
+   384.000   2186.509 # matmult_gpu2
+   384.000   2046.736 # matmult_gpu3
+   384.000   1857.289 # matmult_gpu4
+   384.000   1871.401 # matmult_gpu5
+   384.000     19.259 # matmult_gpulib
+\nend performance\n
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-7>
+Subject: Job 740250: <project3mat> in cluster <dcc> Done
+
+Job <project3mat> was submitted from host <hpclogin3> by user <s160159> in cluster <dcc> at Wed Jan 17 20:01:08 2018.
+Job was executed on host(s) <12*n-62-20-7>, in queue <gpuv100>, as user <s160159> in cluster <dcc> at Wed Jan 17 20:01:08 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/projects/assign_3> was used as the working directory.
+Started at Wed Jan 17 20:01:08 2018.
+Terminated at Wed Jan 17 20:01:24 2018.
+Results reported at Wed Jan 17 20:01:24 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+filename='project3mat'
+
+## cluster setup
+#BSUB -J project3mat
+###BSUB -o project3mat%J.out
+#BSUB -o project3mat.out
+#BSUB -q gpuv100
+#BSUB -gpu "num=1:mode=exclusive_process:mps=yes"
+## set wall time hh:mm
+#BSUB -W 00:20 
+#BSUB -R "rusage[mem=1024MB] span[hosts=1]"
+## set number of cores
+#BSUB -n 12
+
+##  load modules
+module load cuda/9.1
+module load gcc/6.3.0
+
+## data dirs
+mkdir -p analysis/matmult
+rm -rf analysis/matmult/*
+
+
+## declare an array variable
+arr=(32 64 128)
+echo "arr=(${arr[*]})"
+
+## part 2
+
+
+echo "\nstart performance\n"
+for i in "${arr[@]}"
+do
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc lib $i $i $i
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpu1 $i $i $i
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpu2 $i $i $i ## denne er ikke helt god
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpu3 $i $i $i
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpu4 $i $i $i
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpu5 $i $i $i
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpulib $i $i $i
+done
+echo "\nend performance\n"
+
+
+
+## ## part 3
+## ## How much of the running time is used for CPU ↔ GPU transfers?
+## echo "\nstart iomeasure\n"
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   13.45 sec.
+    Max Memory :                                 12 MB
+    Average Memory :                             -
+    Total Requested Memory :                     12288.00 MB
+    Delta Memory :                               12276.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   24 sec.
+    Turnaround time :                            16 sec.
+
+The output (if any) is above this job summary.
+
+Loaded module: cuda/9.1
+Loaded dependency [gcc/6.3.0]: binutils
+Loaded module: gcc/6.3.0
+arr=(32 64 128)
+\nstart performance\n
+    24.000     27.045 # matmult_lib
+    24.000      1.965 # matmult_gpu1
+    24.000     36.261 # matmult_gpu2
+    24.000     34.590 # matmult_gpu3
+    24.000     33.296 # matmult_gpu4
+    24.000     34.817 # matmult_gpu5
+    24.000      0.076 # matmult_gpulib
+    96.000    273.168 # matmult_lib
+    96.000      2.133 # matmult_gpu1
+    96.000    274.887 # matmult_gpu2
+    96.000    266.502 # matmult_gpu3
+    96.000    252.756 # matmult_gpu4
+    96.000    269.932 # matmult_gpu5
+    96.000      2.077 # matmult_gpulib
+   384.000   4582.466 # matmult_lib
+   384.000      2.296 # matmult_gpu1
+   384.000   2109.509 # matmult_gpu2
+   384.000   1964.311 # matmult_gpu3
+   384.000   1839.338 # matmult_gpu4
+   384.000   2022.039 # matmult_gpu5
+   384.000     19.610 # matmult_gpulib
+\nend performance\n
+Loaded module: python3/3.6.0
+Traceback (most recent call last):
+  File "get_performance.py", line 91, in <module>
+    get_performance(input_file=sys.argv[1], out_dir =sys.argv[2], pattern=sys.argv[3])
+  File "get_performance.py", line 8, in get_performance
+    with open(input_file, 'r') as handle:
+FileNotFoundError: [Errno 2] No such file or directory: 'project3mat741358.out'
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-4>
+Subject: Job 741358: <project3mat> in cluster <dcc> Exited
+
+Job <project3mat> was submitted from host <n-62-20-7> by user <s160159> in cluster <dcc> at Thu Jan 18 17:17:59 2018.
+Job was executed on host(s) <12*n-62-20-4>, in queue <gpuv100>, as user <s160159> in cluster <dcc> at Thu Jan 18 17:18:00 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/projects/assign_3> was used as the working directory.
+Started at Thu Jan 18 17:18:00 2018.
+Terminated at Thu Jan 18 17:18:21 2018.
+Results reported at Thu Jan 18 17:18:21 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+filename='project3mat'
+
+## cluster setup
+#BSUB -J project3mat
+###BSUB -o project3mat%J.out
+#BSUB -o project3mat.out
+#BSUB -q gpuv100
+#BSUB -gpu "num=1:mode=exclusive_process:mps=yes"
+## set wall time hh:mm
+#BSUB -W 00:20 
+#BSUB -R "rusage[mem=1024MB] span[hosts=1]"
+## set number of cores
+#BSUB -n 12
+
+##  load modules
+module load cuda/9.1
+module load gcc/6.3.0
+
+## data dirs
+mkdir -p analysis/matmult
+rm -rf analysis/matmult/*
+
+
+## declare an array variable
+arr=(32 64 128)
+echo "arr=(${arr[*]})"
+
+## part 2
+echo "\nstart performance\n"
+for i in "${arr[@]}"
+do
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc lib $i $i $i
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpu1 $i $i $i
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpu2 $i $i $i ## denne er ikke helt god
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpu3 $i $i $i
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpu4 $i $i $i
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpu5 $i $i $i
+    MATMULT_COMPARE=0 MFLOPS_MAX_IT=1 matmult_f.nvcc gpulib $i $i $i
+done
+echo "\nend performance\n"
+
+
+## create data file
+module load python3/3.6.0
+
+c=$filename$LSB_JOBID'.out'
+python3 get_performance.py $c ./analysis/matmult/ performance
+
+
+(... more ...)
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   13.83 sec.
+    Max Memory :                                 15 MB
+    Average Memory :                             15.00 MB
+    Total Requested Memory :                     12288.00 MB
+    Delta Memory :                               12273.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                7
+    Run time :                                   21 sec.
+    Turnaround time :                            22 sec.
+
+The output (if any) is above this job summary.
+

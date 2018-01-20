@@ -1,0 +1,38 @@
+/bin/bash: ./master.sh: Permission denied
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-21-20>
+Subject: Job 739510: <NONAME> in cluster <dcc> Exited
+
+Job <NONAME> was submitted from host <n-62-20-3> by user <s160159> in cluster <dcc> at Wed Jan 17 10:02:13 2018.
+Job was executed on host(s) <n-62-21-20>, in queue <hpc>, as user <s160159> in cluster <dcc> at Wed Jan 17 10:02:14 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/exercises/gpu/ex4_matvec> was used as the working directory.
+Started at Wed Jan 17 10:02:14 2018.
+Terminated at Wed Jan 17 10:02:16 2018.
+Results reported at Wed Jan 17 10:02:16 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+master.sh
+------------------------------------------------------------
+
+Exited with exit code 126.
+
+Resource usage summary:
+
+    CPU time :                                   0.58 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     1024.00 MB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   6 sec.
+    Turnaround time :                            3 sec.
+
+The output (if any) is above this job summary.
+

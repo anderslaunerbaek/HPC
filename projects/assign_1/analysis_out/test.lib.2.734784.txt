@@ -1,0 +1,29 @@
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl.     Incl.     Excl. L1    Excl. L1  Excl. L2  Excl. L2   Name
+Total     Total     D-cache     D-cache   Cache     Cache
+CPU sec.  CPU sec.  Hits        Misses    Hits      Misses
+1.491     1.491     3883891142  22407010  19206007  0          <Total>
+1.401     1.401     3803810928  22407010  19206007  0          <static>@0x58b160 (<libsatlas.so.3.10>)
+0.030     0.030              0         0         0  0          <static>@0x5c541b (<libsatlas.so.3.10>)
+0.020     0.020              0         0         0  0          <static>@0x5d8cc1 (<libsatlas.so.3.10>)
+0.020     0.020       40040097         0         0  0          <static>@0x62e61d (<libsatlas.so.3.10>)
+0.010     0.010       40040117         0         0  0          <static>@0x5b9be4 (<libsatlas.so.3.10>)
+0.010     0.010              0         0         0  0          ATL_dcol2blk_a1
+0.        0.010              0         0         0  0          ATL_dIBNBmm
+0.        0.030              0         0         0  0          ATL_dMBJBmm
+0.        1.491              0         0         0  0          ATL_dgemm
+0.        1.491              0         0         0  0          ATL_dmmJIK
+0.        1.471              0         0         0  0          ATL_dmmJIK2
+0.        0.020              0         0         0  0          ATL_dpKBmm
+0.        0.020              0         0         0  0          ATL_dpKBmm_b1
+0.        0.010              0         0         0  0          ATL_dpMBmm_b1
+0.        0.030              0         0         0  0          ATL_dpNBmm_b1
+0.        0.020              0         0         0  0          ATL_drow2blkT2_a1
+0.        1.491              0         0         0  0          __libc_start_main
+0.        1.491              0         0         0  0          cblas_dgemm
+0.        1.491              0         0         0  0          main
+0.        1.331              0         0         0  0          matmult_lib
+0.        0.160              0         0         0  0          matmult_ref
+0.        1.331              0         0         0  0          mflops
+

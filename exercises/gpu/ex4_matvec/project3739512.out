@@ -1,0 +1,89 @@
+Loaded module: cuda/9.1
+Loaded dependency [gcc/6.3.0]: binutils
+Loaded module: gcc/6.3.0
+Naive
+1.28064e+08	117.869	1.66834	471.71	52.5289	0.0107303	0.0104588	0.000271489
+cuBLAS
+1.28064e+08	151.277	2.14122	605.412	67.4178	0.0106624	0.0104508	0.000211532
+Naive split
+1.28064e+08	262.027	1.8544	1048.63	58.387	0.0054428	0.00532061	0.000122125
+bsub -q gpuv100i -app voltash -gpu "num=2:mode=shared"  -env TERM,LSF_QRSH -Is -J qrsh "reset; /bin/bash -l"
+Invalid syntax for option -env. Job not submitted.
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-20-6>
+Subject: Job 739512: <project3> in cluster <dcc> Done
+
+Job <project3> was submitted from host <n-62-20-3> by user <s160159> in cluster <dcc> at Wed Jan 17 10:04:27 2018.
+Job was executed on host(s) <12*n-62-20-6>, in queue <gpuv100>, as user <s160159> in cluster <dcc> at Wed Jan 17 10:04:28 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/exercises/gpu/ex4_matvec> was used as the working directory.
+Started at Wed Jan 17 10:04:28 2018.
+Terminated at Wed Jan 17 10:04:49 2018.
+Results reported at Wed Jan 17 10:04:49 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+filename='project3'
+
+## cluster setup
+#BSUB -J project3
+#BSUB -o project3%J.out
+#BSUB -q gpuv100
+#BSUB -gpu "num=2:mode=exclusive_process:mps=yes"
+## set wall time hh:mm
+#BSUB -W 00:20 
+#BSUB -R "rusage[mem=4096MB] span[hosts=1]"
+## set number of cores
+#BSUB -n 12
+
+
+
+##  load modules
+module load cuda/9.1
+module load gcc/6.3.0
+
+
+
+N=4000
+M=4000
+
+echo "Naive"
+./naive/matvec $M $N
+
+sleep 5
+
+echo "cuBLAS"
+./cuBLAS/matvec $M $N
+
+sleep 5
+
+echo "Naive split"
+./naive_split/matvec $M $N
+
+
+voltash
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   2.91 sec.
+    Max Memory :                                 49 MB
+    Average Memory :                             -
+    Total Requested Memory :                     49152.00 MB
+    Delta Memory :                               49103.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   33 sec.
+    Turnaround time :                            22 sec.
+
+The output (if any) is above this job summary.
+

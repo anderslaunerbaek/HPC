@@ -1,0 +1,439 @@
+#include <cublas_v2.h>
+#define fmin(a,b) (((a)<(b))?(a):(b))
+#define BLOCK_SIZE 16
+
+extern "C" { 
+    #include <cblas.h> 
+    #include <omp.h>
+    #include <stdio.h>
+    void matmult_lib(int M, int N, int K, double *A, double *B, double *C);
+    void matmult_gpulib(int M, int N, int K, double *A, double *B, double *C);
+    void matmult_gpu1(int M, int N, int K, double *A, double *B, double *C);
+    void matmult_gpu2(int M, int N, int K, double *A, double *B, double *C);
+    void matmult_gpu3(int M, int N, int K, double *A, double *B, double *C);
+    void matmult_gpu4(int M, int N, int K, double *A, double *B, double *C);
+    void matmult_gpu5(int M, int N, int K, double *A, double *B, double *C);
+    // void matmult_gpu6(int M, int N, int K, double *A, double *B, double *C);
+}
+
+
+/*          DONE            */
+__global__ void gpu1_kernel(int M, int N, int K, double *d_A, double *d_B, double *d_C){
+    //Set C entries equal to zero 
+    for(int m=0; m<M; m++){
+        for(int n=0; n<N; n++){
+            d_C[m*N + n] = 0.0;
+        }
+    }
+    
+    for(int m=0; m<M; m++){
+        for(int k=0; k<K; k++){
+            for(int n=0; n<N; n++){
+                d_C[m*N + n] += d_A[m*K + k] * d_B[k*N + n];
+            }
+        }
+    }
+};
+
+extern "C" { 
+void matmult_gpu1(int M, int N, int K, double *A, double *B, double *C) { 
+
+    //Define variables on device
+    double *d_A, *d_B, *d_C;
+
+    //Get sizes of matrices
+    int size_A = M*K*sizeof(double);
+    int size_B = K*N*sizeof(double);
+    int size_C = M*N*sizeof(double);
+
+    //Allocate memory on device
+    cudaMalloc((void**)&d_A, size_A);
+    cudaMalloc((void**)&d_B, size_B);
+    cudaMalloc((void**)&d_C, size_C);
+
+    //Copy memory host -> device
+    cudaMemcpy(d_A, A, size_A, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_B, B, size_B, cudaMemcpyHostToDevice); 
+
+    /* */
+    gpu1_kernel<<<1,1>>>(M, N, K, d_A, d_B, d_C);
+    /* */
+    
+    //Synchronize
+    cudaDeviceSynchronize(); 
+    
+    //Transfer C to host
+    cudaMemcpy(C, d_C, size_C, cudaMemcpyDeviceToHost);
+
+    // Free device memory
+    cudaFree(d_A);
+    cudaFree(d_B);
+    cudaFree(d_C);
+}
+}
+
+
+void __global__ gpu2_kernel(int M, int N, int K, double *d_A, double *d_B, double *d_C){
+    //Get threads
+    int j = blockIdx.x * blockDim.x + threadIdx.x;  // In x
+    int i = blockIdx.y * blockDim.y + threadIdx.y;  // In y
+    
+    if(i < M && j < N) { 
+        //Set initial value to 0
+        double d_Cl = 0.0;
+        //Computing element
+        for(int k = 0; k < K; k++){
+            d_Cl += d_A[i*K + k] * d_B[k*N + j];
+        }
+        d_C[i*N + j] = d_Cl;
+    }
+};
+
+extern "C" { 
+void matmult_gpu2(int M, int N, int K, double *A, double *B, double *C) { 
+
+    //Define variables on device
+    double *d_A, *d_B, *d_C;
+
+    //Get sizes of matrices
+    int size_A = M*K*sizeof(double);
+    int size_B = K*N*sizeof(double);
+    int size_C = M*N*sizeof(double);
+
+    //Allocate memory on device
+    cudaMalloc((void**)&d_A, size_A);
+    cudaMalloc((void**)&d_B, size_B);
+    cudaMalloc((void**)&d_C, size_C);
+
+    //Copy memory host -> device
+    cudaMemcpy(d_A, A, size_A, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_B, B, size_B, cudaMemcpyHostToDevice); 
+
+    /* */
+    int blocks = 16;
+    int grid_m = (M + blocks - 1) / blocks;
+    int grid_n = (N + blocks - 1) / blocks;
+    gpu2_kernel<<<dim3(grid_n,grid_m), dim3(blocks,blocks)>>>(M, N, K, d_A, d_B, d_C);
+    /* */
+    
+    //Synchronize
+    cudaDeviceSynchronize(); 
+    
+    //Transfer C to host
+    cudaMemcpy(C, d_C, size_C, cudaMemcpyDeviceToHost);
+
+    // Free device memory
+    cudaFree(d_A);
+    cudaFree(d_B);
+    cudaFree(d_C);
+}
+}
+
+
+
+void __global__ gpu3_kernel(int M, int N, int K, double *d_A, double *d_B, double *d_C, int stride){
+    int i, j, k, s, is;
+
+    i = (blockIdx.y * blockDim.y + threadIdx.y)*stride;
+    j = blockIdx.x * blockDim.x + threadIdx.x;
+
+    for (s = 0; s < stride; s++){
+        is = i + s;
+        if (is < M && j < N){
+            d_C[is*N + j] = 0.0;
+
+            for (k = 0; k < K; k++)
+                d_C[is*N + j] += d_A[is*K + k] * d_B[k*N + j];
+        }
+    }
+};
+
+extern "C" { 
+void matmult_gpu3(int M, int N, int K, double *A, double *B, double *C) { 
+
+    //Define variables on device
+    double *d_A, *d_B, *d_C;
+
+    //Get sizes of matrices
+    int size_A = M*K*sizeof(double);
+    int size_B = K*N*sizeof(double);
+    int size_C = M*N*sizeof(double);
+
+    //Allocate memory on device
+    cudaMalloc((void**)&d_A, size_A);
+    cudaMalloc((void**)&d_B, size_B);
+    cudaMalloc((void**)&d_C, size_C);
+
+    //Copy memory host -> device
+    cudaMemcpy(d_A, A, size_A, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_B, B, size_B, cudaMemcpyHostToDevice); 
+
+    /* */
+    int stride = 2, blocks = BLOCK_SIZE;
+    int grid_m = (M-1)/blocks + 1;
+    int grid_n = (N-1)/(stride*blocks) + 1;
+    gpu3_kernel<<<dim3(grid_n,grid_m),dim3(blocks,blocks)>>>(M, N, K, d_A, d_B, d_C, stride);
+    /* */
+    
+    //Synchronize
+    cudaDeviceSynchronize(); 
+    
+    //Transfer C to host
+    cudaMemcpy(C, d_C, size_C, cudaMemcpyDeviceToHost);
+
+    // Free device memory
+    cudaFree(d_A);
+    cudaFree(d_B);
+    cudaFree(d_C);
+}
+}
+
+
+
+void __global__ gpu4_kernel(int M, int N, int K, double *d_A, double *d_B, double *d_C, int stride_n, int stride_m){
+    int i, j, k, sn, sm, js, is;
+
+    i = (blockIdx.y * blockDim.y + threadIdx.y)*stride_m;
+    j = (blockIdx.x * blockDim.x + threadIdx.x)*stride_n;
+
+    for (sn = 0; sn < stride_n; sn++){
+        js = j + sn;
+        
+        for (sm = 0; sm < stride_m; sm++){
+            is = i + sm;
+            
+            if (is < M && js < N){
+                d_C[is*N + js] = 0.0;
+
+                for (k = 0; k < K; k++){
+                    d_C[is*N + js] += d_A[is*K + k] * d_B[k*N + js];
+                }
+            }
+        }
+    }
+};
+
+extern "C" { 
+void matmult_gpu4(int M, int N, int K, double *A, double *B, double *C) { 
+
+    //Define variables on device
+    double *d_A, *d_B, *d_C;
+
+    //Get sizes of matrices
+    int size_A = M*K*sizeof(double);
+    int size_B = K*N*sizeof(double);
+    int size_C = M*N*sizeof(double);
+
+    //Allocate memory on device
+    cudaMalloc((void**)&d_A, size_A);
+    cudaMalloc((void**)&d_B, size_B);
+    cudaMalloc((void**)&d_C, size_C);
+
+    //Copy memory host -> device
+    cudaMemcpy(d_A, A, size_A, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_B, B, size_B, cudaMemcpyHostToDevice); 
+
+    /* */
+    int stride_m = 6, stride_n = 1, blocks = BLOCK_SIZE;
+    int grid_m = (M-1)/(stride_m * blocks) + 1;
+    int grid_n = (N-1)/(stride_n * blocks) + 1;
+    gpu4_kernel<<<dim3(grid_n,grid_m),dim3(blocks,blocks)>>>(M, N, K, d_A, d_B, d_C, stride_n, stride_m);
+    /* */
+    
+    //Synchronize
+    cudaDeviceSynchronize(); 
+    
+    //Transfer C to host
+    cudaMemcpy(C, d_C, size_C, cudaMemcpyDeviceToHost);
+
+    // Free device memory
+    cudaFree(d_A);
+    cudaFree(d_B);
+    cudaFree(d_C);
+}
+}
+
+
+
+extern "C" { 
+void matmult_gpulib(int M, int N, int K, double *A, double *B, double *C) {
+
+    // cuBLAS handle??
+    cublasHandle_t handle;
+    cublasCreate(&handle);
+
+    //Define variables on device
+    double *d_A, *d_B, *d_C;
+
+    //Get sizes of matrices
+    int size_A = M*K*sizeof(double);
+    int size_B = K*N*sizeof(double);
+    int size_C = M*N*sizeof(double);
+
+    //Allocate memory on device
+    cudaMalloc((void**)&d_A, size_A);
+    cudaMalloc((void**)&d_B, size_B);
+    cudaMalloc((void**)&d_C, size_C);
+
+    //Copy memory host -> device
+    cudaMemcpy(d_A, A, size_A, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_B, B, size_B, cudaMemcpyHostToDevice);
+    
+    /* */
+    int LDA = fmax(1,K); // leading dimension of A
+    int LDB = fmax(1,N); // leading dimension of B
+    int LDC = fmax(1,N); // leading dimension of C
+    double alpha = 1.0, beta = 0.0; // scaling
+    // into row-major
+    cublasDgemm(handle,CUBLAS_OP_N,CUBLAS_OP_N,N,M,K,&alpha,d_B,LDB,d_A,LDA,&beta,d_C,LDC);
+    /* */
+    
+    //Synchronize
+    cudaDeviceSynchronize(); 
+ 
+    // copy result
+    cudaMemcpy(C, d_C, size_C, cudaMemcpyDeviceToHost);
+    
+    // cleanup
+    cublasDestroy(handle);
+    cudaFree(d_A);
+    cudaFree(d_B); 
+    cudaFree(d_C);
+}
+}
+
+extern "C" { 
+void matmult_lib(int M, int N, int K, double *A, double *B, double *C) {
+    int LDA = fmax(1,K); // leading dimension of A
+    int LDB = fmax(1,N); // leading dimension of B
+    int LDC = fmax(1,N); // leading dimension of C
+    double alpha = 1.0, beta = 0.0; //
+    cblas_dgemm(CblasRowMajor,CblasNoTrans,CblasNoTrans,M,N,K,alpha,A,LDA,B,LDB,beta,C,LDC);
+}
+}
+
+
+
+
+
+
+
+typedef struct { 
+    int width; 
+    int height; 
+    int stride;
+    double* elements; 
+} Matrix;
+
+
+
+
+// Get a matrix element 
+double __device__ GetElement(const Matrix A, int row, int col) { 
+    return A.elements[row * A.stride + col]; 
+} 
+
+// Set a matrix element 
+void __device__ SetElement(Matrix A, int row, int col, double value) { 
+    A.elements[row * A.stride + col] = value; 
+}
+
+
+Matrix __device__ GetSubMatrix(Matrix A, int row, int col) { 
+    Matrix Asub; 
+    Asub.width = BLOCK_SIZE; 
+    Asub.height = BLOCK_SIZE; 
+    Asub.stride = A.stride; 
+    Asub.elements = &A.elements[A.stride * BLOCK_SIZE * row + BLOCK_SIZE * col]; 
+    return Asub; 
+}
+
+
+void __global__ gpu5_kernel(const Matrix A, const Matrix B, Matrix C) {
+    // Block row and column
+    int blockRow = blockIdx.y;
+    int blockCol = blockIdx.x;
+
+    // Each thread block computes one sub-matrix Csub of C
+    Matrix Csub = GetSubMatrix(C, blockRow, blockCol);
+
+    // Each thread computes one element of Csub
+    // by accumulating results into Cvalue
+    double Cvalue = 0;
+
+    // Thread row and column within Csub
+    int row = threadIdx.y;
+    int col = threadIdx.x;
+
+    for (int m = 0; m < (A.width / BLOCK_SIZE); ++m) {
+
+        // Get sub-matrix Asub of A
+        Matrix Asub = GetSubMatrix(A, blockRow, m);
+
+        // Get sub-matrix Bsub of B
+        Matrix Bsub = GetSubMatrix(B, m, blockCol);
+
+        // Shared memory used to store Asub and Bsub respectively
+        __shared__ double As[BLOCK_SIZE][BLOCK_SIZE];
+        __shared__ double Bs[BLOCK_SIZE][BLOCK_SIZE];
+
+        // Load Asub and Bsub from device memory to shared memory
+        // Each thread loads one element of each sub-matrix
+        As[row][col] = GetElement(Asub, row, col);
+        Bs[row][col] = GetElement(Bsub, row, col);
+
+        // Synchronize to make sure the sub-matrices are loaded
+        // before starting the computation
+        __syncthreads();
+        // Multiply Asub and Bsub together
+        for (int e = 0; e < BLOCK_SIZE; ++e)
+            Cvalue += As[row][e] * Bs[e][col];
+
+        __syncthreads();
+    }
+
+    // Write Csub to device memory
+    // Each thread writes one element
+    SetElement(Csub, row, col, Cvalue);
+}
+
+extern "C" {
+void matmult_gpu5(int M, int N, int K, double *A, double *B, double *C) {
+        // Load A and B to device memory 
+    Matrix d_A;
+    d_A.width = d_A.stride = K; 
+    d_A.height = M;
+    size_t size = M * K * sizeof(double);
+    cudaMalloc(&d_A.elements, size);
+    cudaMemcpy(d_A.elements, A, size,
+               cudaMemcpyHostToDevice);
+    Matrix d_B;
+    d_B.width = d_B.stride = N; 
+    d_B.height = K;
+    size = K * N * sizeof(double);
+    cudaMalloc(&d_B.elements, size);
+    cudaMemcpy(d_B.elements, B, size,
+    cudaMemcpyHostToDevice);
+
+    // Allocate C in device memory 
+    Matrix d_C;
+    d_C.width = d_C.stride = N; 
+    d_C.height = M;
+    size = M * N * sizeof(double);
+    cudaMalloc(&d_C.elements, size);
+
+    // Invoke kernel
+    dim3 dimBlock(BLOCK_SIZE, BLOCK_SIZE);
+    dim3 dimGrid(N / dimBlock.x, M / dimBlock.y);
+    gpu5_kernel<<<dimGrid, dimBlock>>>(d_A, d_B, d_C);
+
+    // Read C from device memory
+    cudaMemcpy(C, d_C.elements, size, cudaMemcpyDeviceToHost);
+
+    // Free device memory
+    cudaFree(d_A.elements);
+    cudaFree(d_B.elements);
+    cudaFree(d_C.elements);
+}
+}
+

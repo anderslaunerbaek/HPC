@@ -1,0 +1,644 @@
+Loaded module: studio/12u5
+CPU information
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                24
+On-line CPU(s) list:   0-23
+Thread(s) per core:    1
+Core(s) per socket:    12
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
+Stepping:              1
+CPU MHz:               1199.773
+BogoMIPS:              4402.81
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              30720K
+NUMA node0 CPU(s):     0-11
+NUMA node1 CPU(s):     12-23
+\nnow ready for performance tests\n
+\nstart program_gauss_con\n
+51225	262144	1753.81	4.78541
+194176	1.04858e+06	1734.28	73.3763
+\nend program_gauss_con\n
+\nstart program_jac_seq_con\n
+101831	393216	9456.38	1.76431
+390976	1.57286e+06	9930.55	25.8022
+\nend program_jac_seq_con\n
+\nstart program_jac_mp\n
+1	1.57286e+06	9744.33	0.336278
+1	6.29146e+06	9082.33	1.44315
+1	2.51658e+07	8442.63	6.21001
+1	1.00663e+08	4215.05	49.7539
+2	1.57286e+06	13342.5	0.245592
+2	6.29146e+06	16208.4	0.808669
+2	2.51658e+07	16264.7	3.22347
+2	1.00663e+08	8394.83	24.9815
+4	1.57286e+06	21610.6	0.151629
+4	6.29146e+06	29533.7	0.443805
+4	2.51658e+07	33270.9	1.57581
+4	1.00663e+08	14983.4	13.9965
+8	1.57286e+06	30690.1	0.106771
+8	6.29146e+06	49702.4	0.263714
+8	2.51658e+07	62053.4	0.844898
+8	1.00663e+08	24055.9	8.71782
+12	1.57286e+06	35450.5	0.0924332
+12	6.29146e+06	59260.3	0.22118
+12	2.51658e+07	79382.5	0.660458
+12	1.00663e+08	26125.5	8.02721
+16	1.57286e+06	36108.5	0.0907488
+16	6.29146e+06	68515.2	0.191303
+16	2.51658e+07	94759.9	0.55328
+16	1.00663e+08	26335.5	7.96323
+20	1.57286e+06	35378.5	0.0926213
+20	6.29146e+06	80340.5	0.163146
+20	2.51658e+07	114040	0.459741
+20	1.00663e+08	34929.3	6.00398
+24	1.57286e+06	30279.6	0.108218
+24	6.29146e+06	76435.2	0.171481
+24	2.51658e+07	124648	0.420616
+24	1.00663e+08	27790.3	7.54635
+\nend program_jac_mp\n
+\nstart program_jac_mp_v2\n
+1	1.57286e+06	9799.58	0.334382
+1	6.29146e+06	9092.27	1.44158
+1	2.51658e+07	8359.01	6.27213
+1	1.00663e+08	4106.71	51.0665
+2	1.57286e+06	14266.2	0.22969
+2	6.29146e+06	16823.3	0.779112
+2	2.51658e+07	16806	3.11964
+2	1.00663e+08	8366.66	25.0656
+4	1.57286e+06	23171.9	0.141412
+4	6.29146e+06	27819.7	0.471148
+4	2.51658e+07	32956.8	1.59083
+4	1.00663e+08	14940.8	14.0364
+8	1.57286e+06	31307.7	0.104664
+8	6.29146e+06	53762	0.243801
+8	2.51658e+07	62255.5	0.842155
+8	1.00663e+08	24026.1	8.72866
+12	1.57286e+06	39669.7	0.082602
+12	6.29146e+06	63754.8	0.205588
+12	2.51658e+07	78457.4	0.668245
+12	1.00663e+08	23904.5	8.77303
+16	1.57286e+06	41926.2	0.0781565
+16	6.29146e+06	77238.6	0.169698
+16	2.51658e+07	95770.8	0.54744
+16	1.00663e+08	28856.6	7.26751
+20	1.57286e+06	42814.9	0.076534
+20	6.29146e+06	81023.3	0.161771
+20	2.51658e+07	111588	0.469843
+20	1.00663e+08	31240.1	6.71302
+24	1.57286e+06	25214.4	0.129958
+24	6.29146e+06	81413.9	0.160995
+24	2.51658e+07	137501	0.381296
+24	1.00663e+08	31095.4	6.74424
+\nend program_jac_mp_v2\n
+\nstart program_jac_mp_v3\n
+1	1.57286e+06	9791.62	0.334653
+1	6.29146e+06	8925.27	1.46855
+1	2.51658e+07	8487.35	6.17729
+1	1.00663e+08	4190.3	50.0478
+2	1.57286e+06	14794.2	0.221493
+2	6.29146e+06	15704.1	0.834638
+2	2.51658e+07	17143.1	3.0583
+2	1.00663e+08	8436.79	24.8572
+4	1.57286e+06	23888.1	0.137173
+4	6.29146e+06	29556.1	0.443468
+4	2.51658e+07	33620.9	1.55941
+4	1.00663e+08	15237	13.7635
+8	1.57286e+06	32434.4	0.101029
+8	6.29146e+06	54003.3	0.242711
+8	2.51658e+07	62455.4	0.839459
+8	1.00663e+08	27859.4	7.52762
+12	1.57286e+06	42273.8	0.0775137
+12	6.29146e+06	70260.4	0.186552
+12	2.51658e+07	78031.5	0.671893
+12	1.00663e+08	28379.8	7.38958
+16	1.57286e+06	46400.6	0.0706198
+16	6.29146e+06	72264.3	0.181379
+16	2.51658e+07	100781	0.520225
+16	1.00663e+08	25603.9	8.19077
+20	1.57286e+06	47785.4	0.0685732
+20	6.29146e+06	92338.5	0.141947
+20	2.51658e+07	109551	0.47858
+20	1.00663e+08	33288.3	6.29997
+24	1.57286e+06	36426	0.0899577
+24	6.29146e+06	104192	0.125799
+24	2.51658e+07	149755	0.350098
+24	1.00663e+08	26833.8	7.81533
+\nend program_jac_mp_v3\n
+\nstart program_jac_mp_SP\n
+1	2.51658e+07	8484.51	6.17936
+2	2.51658e+07	16597.5	3.15884
+4	2.51658e+07	31528.6	1.6629
+8	2.51658e+07	57431.9	0.912887
+12	2.51658e+07	77348.1	0.67783
+16	2.51658e+07	95783.2	0.547369
+20	2.51658e+07	111771	0.469075
+24	2.51658e+07	116749	0.449075
+\nend program_jac_mp_SP\n
+\nstart program_jac_mp_v2_SP\n
+1	2.51658e+07	8521.4	6.1526
+2	2.51658e+07	16548.6	3.16817
+4	2.51658e+07	30885.4	1.69753
+8	2.51658e+07	58314.1	0.899076
+12	2.51658e+07	77440.5	0.677021
+16	2.51658e+07	95341.3	0.549907
+20	2.51658e+07	112098	0.467704
+24	2.51658e+07	113238	0.462995
+\nend program_jac_mp_v2_SP\n
+\nstart program_jac_mp_v3_SP\n
+1	2.51658e+07	8500.27	6.1679
+2	2.51658e+07	16596.4	3.15905
+4	2.51658e+07	31437	1.66774
+8	2.51658e+07	55732.7	0.940719
+12	2.51658e+07	77231.1	0.678856
+16	2.51658e+07	97357.9	0.538516
+20	2.51658e+07	111928	0.468414
+24	2.51658e+07	127471	0.4113
+\nend program_jac_mp_v3_SP\n
+\nstart program_mandel\n
+1	0	0	2.65236
+2	0	0	2.01302
+4	0	0	2.01087
+8	0	0	1.04982
+12	0	0	0.758797
+16	0	0	0.592959
+20	0	0	0.46814
+24	0	0	0.429484
+\nend program_mandel\n
+\nstart program_jac_mp_SP_non\n
+1	2.51658e+07	8517.48	6.15544
+2	2.51658e+07	16557.3	3.1665
+4	2.51658e+07	29479.2	1.7785
+8	2.51658e+07	57571.7	0.91067
+12	2.51658e+07	79328.8	0.660905
+16	2.51658e+07	95364.9	0.549771
+20	2.51658e+07	106290	0.493263
+24	2.51658e+07	125533	0.41765
+\nend program_jac_mp_SP_non\n
+\nstart program_jac_mp_v2_SP_non\n
+1	2.51658e+07	8535.93	6.14213
+2	2.51658e+07	16600.1	3.15834
+4	2.51658e+07	30954.9	1.69372
+8	2.51658e+07	57964.6	0.904497
+12	2.51658e+07	75822.8	0.691464
+16	2.51658e+07	103572	0.506206
+20	2.51658e+07	107710	0.486761
+24	2.51658e+07	110895	0.472779
+\nend program_jac_mp_v2_SP_non\n
+\nstart program_jac_mp_v3_SP_non\n
+1	2.51658e+07	8442.4	6.21018
+2	2.51658e+07	16608.8	3.15669
+4	2.51658e+07	31758.2	1.65087
+8	2.51658e+07	58230.9	0.900361
+12	2.51658e+07	80892.2	0.648132
+16	2.51658e+07	101777	0.515134
+20	2.51658e+07	107636	0.487095
+24	2.51658e+07	133935	0.391451
+\nend program_jac_mp_v3_SP_non\n
+\nstart program_mandel_non\n
+1	0	0	2.6521
+2	0	0	2.01193
+4	0	0	2.0006
+8	0	0	1.14986
+12	0	0	0.758737
+16	0	0	0.592038
+20	0	0	0.471566
+24	0	0	0.42966
+\nend program_mandel_non\n
+\nstart program_jac_mp_SP_256\n
+1	1.57286e+06	9741.81	0.336365
+2	1.57286e+06	14210.3	0.230593
+4	1.57286e+06	21854.8	0.149935
+8	1.57286e+06	30837.9	0.106259
+12	1.57286e+06	36249	0.0903969
+16	1.57286e+06	36531.8	0.0896971
+20	1.57286e+06	37984.9	0.0862658
+24	1.57286e+06	33088.5	0.0990314
+\nend program_jac_mp_SP_256\n
+\nstart program_jac_mp_v2_SP_256\n
+1	1.57286e+06	9605.06	0.341154
+2	1.57286e+06	15097.2	0.217046
+4	1.57286e+06	23025.8	0.14231
+8	1.57286e+06	36364.3	0.0901103
+12	1.57286e+06	36947.2	0.0886886
+16	1.57286e+06	29616.1	0.110643
+20	1.57286e+06	42995.5	0.0762126
+24	1.57286e+06	22215.7	0.147499
+\nend program_jac_mp_v2_SP_256\n
+\nstart program_jac_mp_v3_SP_256\n
+1	1.57286e+06	9786.95	0.334813
+2	1.57286e+06	14969.7	0.218895
+4	1.57286e+06	23378.3	0.140164
+8	1.57286e+06	33110.1	0.0989668
+12	1.57286e+06	44488.8	0.0736544
+16	1.57286e+06	45173.8	0.0725377
+20	1.57286e+06	49152.9	0.0666654
+24	1.57286e+06	45842	0.0714803
+\nend program_jac_mp_v3_SP_256\n
+\nstart program_jac_mp_SP_512\n
+1	6.29146e+06	9089.17	1.44207
+2	6.29146e+06	15355.7	0.853575
+4	6.29146e+06	26604.9	0.492661
+8	6.29146e+06	46578.1	0.281402
+12	6.29146e+06	60296.8	0.217378
+16	6.29146e+06	68192.4	0.192209
+20	6.29146e+06	75584.2	0.173412
+24	6.29146e+06	63850.4	0.20528
+\nend program_jac_mp_SP_512\n
+\nstart program_jac_mp_v2_SP_512\n
+1	6.29146e+06	9070.54	1.44503
+2	6.29146e+06	15865.5	0.826143
+4	6.29146e+06	26331.4	0.497778
+8	6.29146e+06	48027.3	0.272912
+12	6.29146e+06	59573.1	0.220019
+16	6.29146e+06	68472.3	0.191423
+20	6.29146e+06	74048.8	0.177008
+24	6.29146e+06	69165.2	0.189506
+\nend program_jac_mp_v2_SP_512\n
+\nstart program_jac_mp_v3_SP_512\n
+1	6.29146e+06	9067.29	1.44555
+2	6.29146e+06	15821.3	0.82845
+4	6.29146e+06	28188.1	0.464991
+8	6.29146e+06	49476.6	0.264917
+12	6.29146e+06	62844.4	0.208566
+16	6.29146e+06	74118.7	0.176841
+20	6.29146e+06	81708.6	0.160414
+24	6.29146e+06	88559.5	0.148005
+\nend program_jac_mp_v3_SP_512\n
+\nstart program_jac_mp_SP_1024\n
+1	2.51658e+07	8424.88	6.22309
+2	2.51658e+07	16674.5	3.14425
+4	2.51658e+07	30797.9	1.70235
+8	2.51658e+07	57146.4	0.917447
+12	2.51658e+07	78025.7	0.671943
+16	2.51658e+07	99622.6	0.526274
+20	2.51658e+07	108289	0.484158
+24	2.51658e+07	122315	0.428636
+\nend program_jac_mp_SP_1024\n
+\nstart program_jac_mp_v2_SP_1024\n
+1	2.51658e+07	8475.03	6.18627
+2	2.51658e+07	16596.1	3.15911
+4	2.51658e+07	29317.5	1.78831
+8	2.51658e+07	58132.6	0.901883
+12	2.51658e+07	78511.4	0.667786
+16	2.51658e+07	94792.4	0.553091
+20	2.51658e+07	113542	0.461758
+24	2.51658e+07	129351	0.405321
+\nend program_jac_mp_v2_SP_1024\n
+\nstart program_jac_mp_v3_SP_1024\n
+1	2.51658e+07	8488.14	6.17671
+2	2.51658e+07	16645.7	3.14969
+4	2.51658e+07	31641.3	1.65698
+8	2.51658e+07	57827	0.90665
+12	2.51658e+07	78813.4	0.665227
+16	2.51658e+07	101836	0.514835
+20	2.51658e+07	114633	0.457361
+24	2.51658e+07	130353	0.402205
+\nend program_jac_mp_v3_SP_1024\n
+\nstart program_jac_mp_SP_2048\n
+1	1.00663e+08	4172.7	50.2589
+2	1.00663e+08	8327.4	25.1838
+4	1.00663e+08	14645.2	14.3198
+8	1.00663e+08	26260.7	7.98589
+12	1.00663e+08	31047.2	6.75473
+16	1.00663e+08	28759.3	7.29209
+20	1.00663e+08	27814.6	7.53975
+24	1.00663e+08	27084.5	7.743
+\nend program_jac_mp_SP_2048\n
+\nstart program_jac_mp_v2_SP_2048\n
+1	1.00663e+08	4205.96	49.8614
+2	1.00663e+08	8347.96	25.1217
+4	1.00663e+08	15398.9	13.6189
+8	1.00663e+08	24656.6	8.50544
+12	1.00663e+08	31865.6	6.58123
+16	1.00663e+08	32085.1	6.53622
+20	1.00663e+08	31872.7	6.57978
+24	1.00663e+08	30781.3	6.81308
+\nend program_jac_mp_v2_SP_2048\n
+\nstart program_jac_mp_v3_SP_2048\n
+1	1.00663e+08	4207.57	49.8424
+2	1.00663e+08	8490.54	24.6999
+4	1.00663e+08	15571.8	13.4676
+8	1.00663e+08	25609.9	8.18883
+12	1.00663e+08	31562.7	6.64441
+16	1.00663e+08	34380.9	6.09976
+20	1.00663e+08	30216.2	6.9405
+24	1.00663e+08	32696.2	6.41406
+\nend program_jac_mp_v3_SP_2048\n
+\n end of performance tests\n
+Loaded module: python3/3.6.0
+Loaded dependency [numpy/1.13.1-python-3.6.2-openblas-0.2.20]: openblas/0.2.20
+Another version of python3 is loaded. Use "module swap python3/3.6.2" instead.
+Loaded dependency [numpy/1.13.1-python-3.6.2-openblas-0.2.20]: python3/3.6.2
+Loaded dependency [matplotlib/2.0.2-python-3.6.2]: numpy/1.13.1-python-3.6.2-openblas-0.2.20
+Loaded module: matplotlib/2.0.2-python-3.6.2
+File created: program_gauss_con.txt
+program_gauss_con_ncore_194176.txt
+program_gauss_con_ncore_51225.txt
+File created: program_jac_mp.txt
+program_jac_mp_ncore_1.txt
+program_jac_mp_ncore_2.txt
+program_jac_mp_ncore_4.txt
+program_jac_mp_ncore_8.txt
+program_jac_mp_ncore_12.txt
+program_jac_mp_ncore_16.txt
+program_jac_mp_ncore_20.txt
+program_jac_mp_ncore_24.txt
+File created: program_jac_mp_v2.txt
+program_jac_mp_v2_ncore_1.txt
+program_jac_mp_v2_ncore_2.txt
+program_jac_mp_v2_ncore_4.txt
+program_jac_mp_v2_ncore_8.txt
+program_jac_mp_v2_ncore_12.txt
+program_jac_mp_v2_ncore_16.txt
+program_jac_mp_v2_ncore_20.txt
+program_jac_mp_v2_ncore_24.txt
+File created: program_jac_mp_v3.txt
+program_jac_mp_v3_ncore_1.txt
+program_jac_mp_v3_ncore_2.txt
+program_jac_mp_v3_ncore_4.txt
+program_jac_mp_v3_ncore_8.txt
+program_jac_mp_v3_ncore_12.txt
+program_jac_mp_v3_ncore_16.txt
+program_jac_mp_v3_ncore_20.txt
+program_jac_mp_v3_ncore_24.txt
+File created: program_jac_mp_SP.txt
+program_jac_mp_SP_ncore_1.txt
+program_jac_mp_SP_ncore_2.txt
+program_jac_mp_SP_ncore_4.txt
+program_jac_mp_SP_ncore_8.txt
+program_jac_mp_SP_ncore_12.txt
+program_jac_mp_SP_ncore_16.txt
+program_jac_mp_SP_ncore_20.txt
+program_jac_mp_SP_ncore_24.txt
+File created: program_jac_mp_v2_SP.txt
+program_jac_mp_v2_SP_ncore_1.txt
+program_jac_mp_v2_SP_ncore_2.txt
+program_jac_mp_v2_SP_ncore_4.txt
+program_jac_mp_v2_SP_ncore_8.txt
+program_jac_mp_v2_SP_ncore_12.txt
+program_jac_mp_v2_SP_ncore_16.txt
+program_jac_mp_v2_SP_ncore_20.txt
+program_jac_mp_v2_SP_ncore_24.txt
+File created: program_jac_mp_v3_SP.txt
+program_jac_mp_v3_SP_ncore_1.txt
+program_jac_mp_v3_SP_ncore_2.txt
+program_jac_mp_v3_SP_ncore_4.txt
+program_jac_mp_v3_SP_ncore_8.txt
+program_jac_mp_v3_SP_ncore_12.txt
+program_jac_mp_v3_SP_ncore_16.txt
+program_jac_mp_v3_SP_ncore_20.txt
+program_jac_mp_v3_SP_ncore_24.txt
+File created: program_mandel.txt
+program_mandel_ncore_1.txt
+program_mandel_ncore_2.txt
+program_mandel_ncore_4.txt
+program_mandel_ncore_8.txt
+program_mandel_ncore_12.txt
+program_mandel_ncore_16.txt
+program_mandel_ncore_20.txt
+program_mandel_ncore_24.txt
+File created: program_jac_mp_SP_non.txt
+program_jac_mp_SP_non_ncore_1.txt
+program_jac_mp_SP_non_ncore_2.txt
+program_jac_mp_SP_non_ncore_4.txt
+program_jac_mp_SP_non_ncore_8.txt
+program_jac_mp_SP_non_ncore_12.txt
+program_jac_mp_SP_non_ncore_16.txt
+program_jac_mp_SP_non_ncore_20.txt
+program_jac_mp_SP_non_ncore_24.txt
+File created: program_jac_mp_v2_SP_non.txt
+program_jac_mp_v2_SP_non_ncore_1.txt
+program_jac_mp_v2_SP_non_ncore_2.txt
+program_jac_mp_v2_SP_non_ncore_4.txt
+program_jac_mp_v2_SP_non_ncore_8.txt
+program_jac_mp_v2_SP_non_ncore_12.txt
+program_jac_mp_v2_SP_non_ncore_16.txt
+program_jac_mp_v2_SP_non_ncore_20.txt
+program_jac_mp_v2_SP_non_ncore_24.txt
+File created: program_jac_mp_v3_SP_non.txt
+program_jac_mp_v3_SP_non_ncore_1.txt
+program_jac_mp_v3_SP_non_ncore_2.txt
+program_jac_mp_v3_SP_non_ncore_4.txt
+program_jac_mp_v3_SP_non_ncore_8.txt
+program_jac_mp_v3_SP_non_ncore_12.txt
+program_jac_mp_v3_SP_non_ncore_16.txt
+program_jac_mp_v3_SP_non_ncore_20.txt
+program_jac_mp_v3_SP_non_ncore_24.txt
+File created: program_mandel_non.txt
+program_mandel_non_ncore_1.txt
+program_mandel_non_ncore_2.txt
+program_mandel_non_ncore_4.txt
+program_mandel_non_ncore_8.txt
+program_mandel_non_ncore_12.txt
+program_mandel_non_ncore_16.txt
+program_mandel_non_ncore_20.txt
+program_mandel_non_ncore_24.txt
+File created: program_jac_seq_con.txt
+program_jac_seq_con_ncore_390976.txt
+program_jac_seq_con_ncore_101831.txt
+File created: program_jac_mp_SP_256.txt
+program_jac_mp_SP_256_ncore_1.txt
+program_jac_mp_SP_256_ncore_2.txt
+program_jac_mp_SP_256_ncore_4.txt
+program_jac_mp_SP_256_ncore_8.txt
+program_jac_mp_SP_256_ncore_12.txt
+program_jac_mp_SP_256_ncore_16.txt
+program_jac_mp_SP_256_ncore_20.txt
+program_jac_mp_SP_256_ncore_24.txt
+File created: program_jac_mp_SP_512.txt
+program_jac_mp_SP_512_ncore_1.txt
+program_jac_mp_SP_512_ncore_2.txt
+program_jac_mp_SP_512_ncore_4.txt
+program_jac_mp_SP_512_ncore_8.txt
+program_jac_mp_SP_512_ncore_12.txt
+program_jac_mp_SP_512_ncore_16.txt
+program_jac_mp_SP_512_ncore_20.txt
+program_jac_mp_SP_512_ncore_24.txt
+File created: program_jac_mp_SP_1024.txt
+program_jac_mp_SP_1024_ncore_1.txt
+program_jac_mp_SP_1024_ncore_2.txt
+program_jac_mp_SP_1024_ncore_4.txt
+program_jac_mp_SP_1024_ncore_8.txt
+program_jac_mp_SP_1024_ncore_12.txt
+program_jac_mp_SP_1024_ncore_16.txt
+program_jac_mp_SP_1024_ncore_20.txt
+program_jac_mp_SP_1024_ncore_24.txt
+File created: program_jac_mp_SP_2048.txt
+program_jac_mp_SP_2048_ncore_1.txt
+program_jac_mp_SP_2048_ncore_2.txt
+program_jac_mp_SP_2048_ncore_4.txt
+program_jac_mp_SP_2048_ncore_8.txt
+program_jac_mp_SP_2048_ncore_12.txt
+program_jac_mp_SP_2048_ncore_16.txt
+program_jac_mp_SP_2048_ncore_20.txt
+program_jac_mp_SP_2048_ncore_24.txt
+File created: program_jac_mp_v2_SP_256.txt
+program_jac_mp_v2_SP_256_ncore_1.txt
+program_jac_mp_v2_SP_256_ncore_2.txt
+program_jac_mp_v2_SP_256_ncore_4.txt
+program_jac_mp_v2_SP_256_ncore_8.txt
+program_jac_mp_v2_SP_256_ncore_12.txt
+program_jac_mp_v2_SP_256_ncore_16.txt
+program_jac_mp_v2_SP_256_ncore_20.txt
+program_jac_mp_v2_SP_256_ncore_24.txt
+File created: program_jac_mp_v2_SP_512.txt
+program_jac_mp_v2_SP_512_ncore_1.txt
+program_jac_mp_v2_SP_512_ncore_2.txt
+program_jac_mp_v2_SP_512_ncore_4.txt
+program_jac_mp_v2_SP_512_ncore_8.txt
+program_jac_mp_v2_SP_512_ncore_12.txt
+program_jac_mp_v2_SP_512_ncore_16.txt
+program_jac_mp_v2_SP_512_ncore_20.txt
+program_jac_mp_v2_SP_512_ncore_24.txt
+File created: program_jac_mp_v2_SP_1024.txt
+program_jac_mp_v2_SP_1024_ncore_1.txt
+program_jac_mp_v2_SP_1024_ncore_2.txt
+program_jac_mp_v2_SP_1024_ncore_4.txt
+program_jac_mp_v2_SP_1024_ncore_8.txt
+program_jac_mp_v2_SP_1024_ncore_12.txt
+program_jac_mp_v2_SP_1024_ncore_16.txt
+program_jac_mp_v2_SP_1024_ncore_20.txt
+program_jac_mp_v2_SP_1024_ncore_24.txt
+File created: program_jac_mp_v2_SP_2048.txt
+program_jac_mp_v2_SP_2048_ncore_1.txt
+program_jac_mp_v2_SP_2048_ncore_2.txt
+program_jac_mp_v2_SP_2048_ncore_4.txt
+program_jac_mp_v2_SP_2048_ncore_8.txt
+program_jac_mp_v2_SP_2048_ncore_12.txt
+program_jac_mp_v2_SP_2048_ncore_16.txt
+program_jac_mp_v2_SP_2048_ncore_20.txt
+program_jac_mp_v2_SP_2048_ncore_24.txt
+File created: program_jac_mp_v3_SP_256.txt
+program_jac_mp_v3_SP_256_ncore_1.txt
+program_jac_mp_v3_SP_256_ncore_2.txt
+program_jac_mp_v3_SP_256_ncore_4.txt
+program_jac_mp_v3_SP_256_ncore_8.txt
+program_jac_mp_v3_SP_256_ncore_12.txt
+program_jac_mp_v3_SP_256_ncore_16.txt
+program_jac_mp_v3_SP_256_ncore_20.txt
+program_jac_mp_v3_SP_256_ncore_24.txt
+File created: program_jac_mp_v3_SP_512.txt
+program_jac_mp_v3_SP_512_ncore_1.txt
+program_jac_mp_v3_SP_512_ncore_2.txt
+program_jac_mp_v3_SP_512_ncore_4.txt
+program_jac_mp_v3_SP_512_ncore_8.txt
+program_jac_mp_v3_SP_512_ncore_12.txt
+program_jac_mp_v3_SP_512_ncore_16.txt
+program_jac_mp_v3_SP_512_ncore_20.txt
+program_jac_mp_v3_SP_512_ncore_24.txt
+File created: program_jac_mp_v3_SP_1024.txt
+program_jac_mp_v3_SP_1024_ncore_1.txt
+program_jac_mp_v3_SP_1024_ncore_2.txt
+program_jac_mp_v3_SP_1024_ncore_4.txt
+program_jac_mp_v3_SP_1024_ncore_8.txt
+program_jac_mp_v3_SP_1024_ncore_12.txt
+program_jac_mp_v3_SP_1024_ncore_16.txt
+program_jac_mp_v3_SP_1024_ncore_20.txt
+program_jac_mp_v3_SP_1024_ncore_24.txt
+File created: program_jac_mp_v3_SP_2048.txt
+program_jac_mp_v3_SP_2048_ncore_1.txt
+program_jac_mp_v3_SP_2048_ncore_2.txt
+program_jac_mp_v3_SP_2048_ncore_4.txt
+program_jac_mp_v3_SP_2048_ncore_8.txt
+program_jac_mp_v3_SP_2048_ncore_12.txt
+program_jac_mp_v3_SP_2048_ncore_16.txt
+program_jac_mp_v3_SP_2048_ncore_20.txt
+program_jac_mp_v3_SP_2048_ncore_24.txt
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n-62-21-102>
+Subject: Job 737728: <project_2> in cluster <dcc> Done
+
+Job <project_2> was submitted from host <hpclogin3> by user <s160159> in cluster <dcc> at Fri Jan 12 11:09:24 2018.
+Job was executed on host(s) <24*n-62-21-102>, in queue <hpcintro>, as user <s160159> in cluster <dcc> at Fri Jan 12 11:09:25 2018.
+</zhome/d4/8/112215> was used as the home directory.
+</zhome/d4/8/112215/Documents/HPC/projects/assign_2> was used as the working directory.
+Started at Fri Jan 12 11:09:25 2018.
+Terminated at Fri Jan 12 11:27:40 2018.
+Results reported at Fri Jan 12 11:27:40 2018.
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+filename='project_2'
+
+## cluster setup
+#BSUB -J project_2
+#BSUB -o project_2%J.out
+#BSUB -q hpcintro
+## set wall time hh:mm
+#BSUB -W 40 
+#BSUB -R "rusage[mem=2048MB] span[hosts=1]"
+## set number of cores
+#BSUB -n 24
+
+##  load modules
+module load studio
+
+
+# keep idle threads spinning (needed to monitor idle times!)
+export OMP_WAIT_POLICY=active
+
+
+## print test environment
+echo "CPU information"
+lscpu
+
+## declare an array variable
+n_core=(1 2 4 8 12 16 20 24)
+arr=(128 256)
+max_iter=5000000;
+d=0.0000000001;
+
+## data dir
+mkdir -p analysis
+rm -rf analysis/*
+
+
+echo "\nnow ready for performance tests\n"
+
+echo "\nstart program_gauss_con\n"
+for nn in "${arr[@]}"
+do
+	./program_gauss_con $nn $max_iter $d
+	
+done
+echo "\nend program_gauss_con\n"
+
+echo "\nstart program_jac_seq_con\n"
+for nn in "${arr[@]}"
+do
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   5557.21 sec.
+    Max Memory :                                 105 MB
+    Average Memory :                             79.73 MB
+    Total Requested Memory :                     49152.00 MB
+    Delta Memory :                               49047.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                28
+    Run time :                                   1095 sec.
+    Turnaround time :                            1096 sec.
+
+The output (if any) is above this job summary.
+
